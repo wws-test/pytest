@@ -1,0 +1,3 @@
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:388 POST http://127.0.0.1:36962/session/e04a9074526dfb3f04e24602e012f8f9/window/maximize {}
+DEBUG    urllib3.connectionpool:connectionpool.py:442 http://127.0.0.1:36962 "POST /session/e04a9074526dfb3f04e24602e012f8f9/window/maximize HTTP/1.1" 404 1000
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request

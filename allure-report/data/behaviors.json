@@ -1,0 +1,64 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "bd-后台审核",
+    "children" : [ {
+      "name" : "创建人群包-搜索",
+      "children" : [ {
+        "name" : "test_cw",
+        "uid" : "fe98e8507f745108",
+        "parentUid" : "09cc36253431da8f79cb794943e5703e",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1597831518187,
+          "stop" : 1597831518187,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "09cc36253431da8f79cb794943e5703e"
+    }, {
+      "name" : "审核-任务",
+      "children" : [ {
+        "name" : "test_ch",
+        "uid" : "cb00eedce5fd30b3",
+        "parentUid" : "a32056b5293e6e8acd61a40eb0addf45",
+        "status" : "broken",
+        "time" : {
+          "start" : 1597831526195,
+          "stop" : 1597831530236,
+          "duration" : 4041
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "a32056b5293e6e8acd61a40eb0addf45"
+    } ],
+    "uid" : "369a9652f511bd7f361e9545c14bdbca"
+  }, {
+    "name" : "jzyx-基准流程",
+    "children" : [ {
+      "name" : "创建计划-输入内容-提交计划",
+      "children" : [ {
+        "name" : "test_001",
+        "uid" : "973c4af75c39cf22",
+        "parentUid" : "021d77f73f9fdd9c71b8e999865122e5",
+        "status" : "broken",
+        "time" : {
+          "start" : 1597831530370,
+          "stop" : 1597831530370,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "021d77f73f9fdd9c71b8e999865122e5"
+    } ],
+    "uid" : "491e5704552628c2d87975ecea9645ad"
+  } ]
+}
