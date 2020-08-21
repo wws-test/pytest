@@ -22,7 +22,6 @@ class TestCreatpl:
         bd = bd_test(drivers)
         bd.get_url(ini.bdurl)
         bd.login()
-    # @pytest.mark.dependency(depends=["Test_yx::test_001"])
 
     @pytest.mark.skip(reason="no way of currently testing this")
     @allure.story("创建人群包-搜索")

@@ -1603,3 +1603,27 @@ INFO	2020-08-21 10:28:30,436	[basepage.py:89]	输入文本：swwtest0812
 INFO	2020-08-21 10:28:31,537	[basepage.py:89]	输入文本：123456
 INFO	2020-08-21 10:28:32,590	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
 INFO	2020-08-21 10:28:49,651	[basepage.py:89]	输入文本：sww
+INFO	2020-08-21 11:04:29,911	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 11:04:31,175	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 11:04:32,273	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 11:04:33,323	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 11:04:35,377	[basepage.py:50]	点击元素：('xpath', "//aside[@class='ant-layout-sider ant-layout-sider-dark']//li[2]")
+INFO	2020-08-21 11:04:37,535	[basepage.py:50]	点击元素：('xpath', "//button[@class='g_btn_normal btn4 ant-btn ant-btn-primary']")
+INFO	2020-08-21 11:04:39,637	[basepage.py:50]	点击元素：('xpath', '//tr[1]//td[1]//span[1]//label[1]//span[1]//input[1]')
+INFO	2020-08-21 11:04:41,755	[basepage.py:50]	点击元素：('xpath', "//button[@class='primary_newxt ant-btn ant-btn-primary']")
+INFO	2020-08-21 11:04:43,529	[basepage.py:89]	输入文本：634929
+INFO	2020-08-21 11:04:44,851	[basepage.py:89]	输入文本：四通科技有限公司
+INFO	2020-08-21 11:04:46,407	[basepage.py:89]	输入文本：重庆市长春县锡山高路D座 578925
+INFO	2020-08-21 11:04:47,499	[basepage.py:50]	点击元素：('xpath', '//body//a[2]')
+INFO	2020-08-21 11:04:48,969	[basepage.py:89]	输入文本：http://www.kd.cn/
+INFO	2020-08-21 11:04:50,068	[basepage.py:50]	点击元素：('xpath', "//button[@class='ant-btn ant-btn-primary']")
+INFO	2020-08-21 11:04:50,113	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 11:04:51,372	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 11:04:52,464	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 11:04:53,511	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 11:04:56,565	[basepage.py:50]	点击元素：('xpath', "//aside[@class='ant-layout-sider ant-layout-sider-dark']//li[2]")
+INFO	2020-08-21 11:04:58,714	[basepage.py:50]	点击元素：('xpath', "//button[@class='g_btn_normal btn4 ant-btn ant-btn-primary']")
+INFO	2020-08-21 11:04:59,806	[basepage.py:50]	点击元素：('class', 'uploadcrowd')
+INFO	2020-08-21 11:05:00,869	[basepage.py:50]	点击元素：('xpath', "//span[@class='ant-radio']//input[@class='ant-radio-input']")
+INFO	2020-08-21 11:05:02,930	[basepage.py:50]	点击元素：('xpath', "//div[@class='myRadio ant-radio-group ant-radio-group-outline ant-radio-group-default']//label[@class='ant-radio-wrapper']//input[@class='ant-radio-input']")
+INFO	2020-08-21 11:05:04,112	[basepage.py:89]	输入文本：襄樊地球村网络有限公司
