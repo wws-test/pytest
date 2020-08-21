@@ -36,7 +36,7 @@ class TestCreatpl:
         Create.Fillplan()
 
     # @pytest.mark.skip(reason="no way of currently testing this")
-    @allure.story("创建人群包-搜索")
+    @allure.story("创建人群包-创建")
     def test_002(self, drivers):
         uploading = upload(drivers)
         uploading.up()
@@ -44,6 +44,15 @@ class TestCreatpl:
         result = uploading.text()
         log.info(result)
         assert result
+
+    @allure.story("创建人群包-搜索")
+    def test_003(self, drivers):
+        uploading = upload(drivers)
+        uploading.search_r()
+        result = uploading.text()
+        log.info(result)
+        assert result
+
 
 
 if __name__ == '__main__':
