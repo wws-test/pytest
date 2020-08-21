@@ -1,26 +1,26 @@
 {
   "total" : 2,
   "items" : [ {
-    "uid" : "369a9652f511bd7f361e9545c14bdbca",
-    "name" : "bd-后台审核",
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 1,
-      "skipped" : 1,
-      "passed" : 0,
-      "unknown" : 0,
-      "total" : 2
-    }
-  }, {
     "uid" : "491e5704552628c2d87975ecea9645ad",
     "name" : "jzyx-基准流程",
     "statistic" : {
       "failed" : 0,
       "broken" : 1,
-      "skipped" : 0,
+      "skipped" : 2,
       "passed" : 0,
       "unknown" : 0,
-      "total" : 1
+      "total" : 3
+    }
+  }, {
+    "uid" : "369a9652f511bd7f361e9545c14bdbca",
+    "name" : "bd-后台审核",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 2,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 2
     }
   } ]
 }

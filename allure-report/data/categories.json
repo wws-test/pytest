@@ -4,35 +4,22 @@
   "children" : [ {
     "name" : "Test defects",
     "children" : [ {
-      "name" : "selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=84.0.4147.125)",
+      "name" : "selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=84.0.4147.135)",
       "children" : [ {
-        "name" : "test_ch",
-        "uid" : "cb00eedce5fd30b3",
-        "parentUid" : "20f6396fb2baab2070259ff5620fa679",
+        "name" : "test_003",
+        "uid" : "c77828abd8ce2cc6",
+        "parentUid" : "e157146fde98e1a53a5b8aeb60d1e697",
         "status" : "broken",
         "time" : {
-          "start" : 1597831526195,
-          "stop" : 1597831530236,
-          "duration" : 4041
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ ]
-      }, {
-        "name" : "test_001",
-        "uid" : "973c4af75c39cf22",
-        "parentUid" : "20f6396fb2baab2070259ff5620fa679",
-        "status" : "broken",
-        "time" : {
-          "start" : 1597831530370,
-          "stop" : 1597831530370,
-          "duration" : 0
+          "start" : 1597976841117,
+          "stop" : 1597976867443,
+          "duration" : 26326
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ ]
       } ],
-      "uid" : "20f6396fb2baab2070259ff5620fa679"
+      "uid" : "e157146fde98e1a53a5b8aeb60d1e697"
     } ],
     "uid" : "bdbf199525818fae7a8651db9eafe741"
   } ]

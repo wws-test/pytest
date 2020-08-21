@@ -2,55 +2,17 @@
   "uid" : "b1a8273437954620fa374b796ffaacdd",
   "name" : "behaviors",
   "children" : [ {
-    "name" : "bd-后台审核",
-    "children" : [ {
-      "name" : "创建人群包-搜索",
-      "children" : [ {
-        "name" : "test_cw",
-        "uid" : "fe98e8507f745108",
-        "parentUid" : "09cc36253431da8f79cb794943e5703e",
-        "status" : "skipped",
-        "time" : {
-          "start" : 1597831518187,
-          "stop" : 1597831518187,
-          "duration" : 0
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ ]
-      } ],
-      "uid" : "09cc36253431da8f79cb794943e5703e"
-    }, {
-      "name" : "审核-任务",
-      "children" : [ {
-        "name" : "test_ch",
-        "uid" : "cb00eedce5fd30b3",
-        "parentUid" : "a32056b5293e6e8acd61a40eb0addf45",
-        "status" : "broken",
-        "time" : {
-          "start" : 1597831526195,
-          "stop" : 1597831530236,
-          "duration" : 4041
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ ]
-      } ],
-      "uid" : "a32056b5293e6e8acd61a40eb0addf45"
-    } ],
-    "uid" : "369a9652f511bd7f361e9545c14bdbca"
-  }, {
     "name" : "jzyx-基准流程",
     "children" : [ {
       "name" : "创建计划-输入内容-提交计划",
       "children" : [ {
         "name" : "test_001",
-        "uid" : "973c4af75c39cf22",
+        "uid" : "6c551e32cf286c14",
         "parentUid" : "021d77f73f9fdd9c71b8e999865122e5",
-        "status" : "broken",
+        "status" : "skipped",
         "time" : {
-          "start" : 1597831530370,
-          "stop" : 1597831530370,
+          "start" : 1597976833202,
+          "stop" : 1597976833202,
           "duration" : 0
         },
         "flaky" : false,
@@ -58,7 +20,79 @@
         "parameters" : [ ]
       } ],
       "uid" : "021d77f73f9fdd9c71b8e999865122e5"
+    }, {
+      "name" : "创建人群包",
+      "children" : [ {
+        "name" : "test_002",
+        "uid" : "879bec27323fbd67",
+        "parentUid" : "e2214636e6f116bbdec7d2f7d5abad66",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1597976833209,
+          "stop" : 1597976833209,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "e2214636e6f116bbdec7d2f7d5abad66"
+    }, {
+      "name" : "搜索-删除人群包",
+      "children" : [ {
+        "name" : "test_003",
+        "uid" : "c77828abd8ce2cc6",
+        "parentUid" : "c608df690d34ddc547dfe138b93ac549",
+        "status" : "broken",
+        "time" : {
+          "start" : 1597976841117,
+          "stop" : 1597976867443,
+          "duration" : 26326
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "c608df690d34ddc547dfe138b93ac549"
     } ],
     "uid" : "491e5704552628c2d87975ecea9645ad"
+  }, {
+    "name" : "bd-后台审核",
+    "children" : [ {
+      "name" : "审核-任务",
+      "children" : [ {
+        "name" : "test_ch",
+        "uid" : "14fa2598e87815f4",
+        "parentUid" : "a32056b5293e6e8acd61a40eb0addf45",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1597976833206,
+          "stop" : 1597976833206,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "a32056b5293e6e8acd61a40eb0addf45"
+    }, {
+      "name" : "创建人群包-搜索",
+      "children" : [ {
+        "name" : "test_cw",
+        "uid" : "42158f77806a3e01",
+        "parentUid" : "09cc36253431da8f79cb794943e5703e",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1597976833208,
+          "stop" : 1597976833208,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "09cc36253431da8f79cb794943e5703e"
+    } ],
+    "uid" : "369a9652f511bd7f361e9545c14bdbca"
   } ]
 }

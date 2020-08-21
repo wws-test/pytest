@@ -1378,3 +1378,228 @@ INFO	2020-08-20 10:55:26,939	[basepage.py:62]	打开网页：http://192.168.0.20
 INFO	2020-08-20 10:55:28,220	[basepage.py:89]	输入文本：swwtest0812
 INFO	2020-08-20 10:55:29,321	[basepage.py:89]	输入文本：123456
 INFO	2020-08-20 10:55:30,371	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:32:44,181	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 09:32:45,506	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 09:32:46,607	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 09:32:47,660	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:32:49,712	[basepage.py:50]	点击元素：('xpath', "//aside[@class='ant-layout-sider ant-layout-sider-dark']//li[2]")
+INFO	2020-08-21 09:32:51,878	[basepage.py:50]	点击元素：('xpath', "//button[@class='g_btn_normal btn4 ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:32:53,976	[basepage.py:50]	点击元素：('xpath', '//tr[1]//td[1]//span[1]//label[1]//span[1]//input[1]')
+INFO	2020-08-21 09:32:56,087	[basepage.py:50]	点击元素：('xpath', "//button[@class='primary_newxt ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:32:57,849	[basepage.py:89]	输入文本：933423
+INFO	2020-08-21 09:32:59,166	[basepage.py:89]	输入文本：兰金电子网络有限公司
+INFO	2020-08-21 09:33:00,717	[basepage.py:89]	输入文本：青海省西宁县南湖王路V座 528994
+INFO	2020-08-21 09:33:01,815	[basepage.py:50]	点击元素：('xpath', '//body//a[2]')
+INFO	2020-08-21 09:33:03,292	[basepage.py:89]	输入文本：http://minmin.cn/
+INFO	2020-08-21 09:33:04,380	[basepage.py:50]	点击元素：('xpath', "//button[@class='ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:33:04,747	[basepage.py:62]	打开网页：http://192.168.0.202/precision/login;JSESSIONID=e10b9d04-5661-46b7-9841-ec823cbe4907
+INFO	2020-08-21 09:33:05,882	[basepage.py:89]	输入文本：test901
+INFO	2020-08-21 09:33:06,950	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 09:33:10,481	[basepage.py:50]	点击元素：('xpath', "//input[@class='logininfo_submit']")
+INFO	2020-08-21 09:33:12,528	[basepage.py:50]	点击元素：('xpath', '/html/body/div[1]/table/tbody/tr/td/table/tbody/tr/td[1]/div/div/div/table/tbody[1]/tr[2]/td/div')
+INFO	2020-08-21 09:33:13,570	[basepage.py:50]	点击元素：('xpath', '/html/body/div[1]/table/tbody/tr/td/table/tbody/tr/td[3]/div/div/div/div/div/div/div[1]/button[3]')
+INFO	2020-08-21 09:33:14,641	[basepage.py:50]	点击元素：('class', 'z-bandbox-input')
+INFO	2020-08-21 09:33:15,686	[basepage.py:50]	点击元素：('xpath', '/html/body/div[5]/div/div/div[3]/table/tbody[1]/tr[4]/td/div')
+INFO	2020-08-21 09:33:17,775	[basepage.py:89]	输入文本：晖来计算机信息有限公司
+INFO	2020-08-21 09:33:18,836	[basepage.py:50]	点击元素：('xpath', '//tr[4]//td[2]//div[1]//div[1]//span[1]//a[1]//i[1]')
+INFO	2020-08-21 09:33:19,882	[basepage.py:50]	点击元素：('xpath', '//body/div/ul/li[1]')
+INFO	2020-08-21 09:33:20,965	[basepage.py:89]	输入文本：926008
+INFO	2020-08-21 09:33:22,005	[basepage.py:50]	点击元素：('xpath', "//table[@class='z-vbox']//table//tbody//tr//td//table[@class='z-hbox']//tbody//tr//td//table//tbody//tr//td//button[@class='z-button']")
+INFO	2020-08-21 09:33:23,067	[basepage.py:89]	输入文本：817554
+INFO	2020-08-21 09:33:24,105	[basepage.py:50]	点击元素：('xpath', "//table[@class='z-vbox']//table//tbody//tr//td//table[@class='z-hbox']//tbody//tr//td//table//tbody//tr//td//button[@class='z-button']")
+INFO	2020-08-21 09:33:25,148	[basepage.py:50]	点击元素：('xpath', "//button[@class='btn btn-primary z-button']")
+INFO	2020-08-21 09:33:25,319	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 09:33:26,569	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 09:33:27,665	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 09:33:28,713	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:33:31,769	[basepage.py:50]	点击元素：('xpath', "//aside[@class='ant-layout-sider ant-layout-sider-dark']//li[2]")
+INFO	2020-08-21 09:33:33,922	[basepage.py:50]	点击元素：('xpath', "//button[@class='g_btn_normal btn4 ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:33:35,013	[basepage.py:50]	点击元素：('class', 'uploadcrowd')
+INFO	2020-08-21 09:33:36,081	[basepage.py:50]	点击元素：('xpath', "//span[@class='ant-radio']//input[@class='ant-radio-input']")
+INFO	2020-08-21 09:33:38,143	[basepage.py:50]	点击元素：('xpath', "//div[@class='myRadio ant-radio-group ant-radio-group-outline ant-radio-group-default']//label[@class='ant-radio-wrapper']//input[@class='ant-radio-input']")
+INFO	2020-08-21 09:33:39,308	[basepage.py:89]	输入文本：华成育卓科技有限公司
+INFO	2020-08-21 09:42:30,035	[basepage.py:62]	打开网页：http://192.168.0.202/precision/login;JSESSIONID=e10b9d04-5661-46b7-9841-ec823cbe4907
+INFO	2020-08-21 09:42:31,251	[basepage.py:89]	输入文本：test901
+INFO	2020-08-21 09:42:32,333	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 09:42:35,227	[basepage.py:50]	点击元素：('xpath', "//input[@class='logininfo_submit']")
+INFO	2020-08-21 09:42:37,273	[basepage.py:50]	点击元素：('xpath', '/html/body/div[1]/table/tbody/tr/td/table/tbody/tr/td[1]/div/div/div/table/tbody[1]/tr[2]/td/div')
+INFO	2020-08-21 09:42:38,316	[basepage.py:50]	点击元素：('xpath', '/html/body/div[1]/table/tbody/tr/td/table/tbody/tr/td[3]/div/div/div/div/div/div/div[1]/button[3]')
+INFO	2020-08-21 09:42:39,392	[basepage.py:50]	点击元素：('class', 'z-bandbox-input')
+INFO	2020-08-21 09:42:40,436	[basepage.py:50]	点击元素：('xpath', '/html/body/div[5]/div/div/div[3]/table/tbody[1]/tr[4]/td/div')
+INFO	2020-08-21 09:42:42,529	[basepage.py:89]	输入文本：万迅电脑信息有限公司
+INFO	2020-08-21 09:42:43,592	[basepage.py:50]	点击元素：('xpath', '//tr[4]//td[2]//div[1]//div[1]//span[1]//a[1]//i[1]')
+INFO	2020-08-21 09:42:44,644	[basepage.py:50]	点击元素：('xpath', '//body/div/ul/li[1]')
+INFO	2020-08-21 09:42:45,732	[basepage.py:89]	输入文本：705080
+INFO	2020-08-21 09:42:46,780	[basepage.py:50]	点击元素：('xpath', "//table[@class='z-vbox']//table//tbody//tr//td//table[@class='z-hbox']//tbody//tr//td//table//tbody//tr//td//button[@class='z-button']")
+INFO	2020-08-21 09:42:47,836	[basepage.py:89]	输入文本：105367
+INFO	2020-08-21 09:42:48,881	[basepage.py:50]	点击元素：('xpath', "//table[@class='z-vbox']//table//tbody//tr//td//table[@class='z-hbox']//tbody//tr//td//table//tbody//tr//td//button[@class='z-button']")
+INFO	2020-08-21 09:42:49,926	[basepage.py:50]	点击元素：('xpath', "//button[@class='btn btn-primary z-button']")
+INFO	2020-08-21 09:42:50,441	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 09:42:51,708	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 09:42:52,811	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 09:42:53,863	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:42:56,917	[basepage.py:50]	点击元素：('xpath', "//aside[@class='ant-layout-sider ant-layout-sider-dark']//li[2]")
+INFO	2020-08-21 09:42:59,081	[basepage.py:50]	点击元素：('xpath', "//button[@class='g_btn_normal btn4 ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:43:00,173	[basepage.py:50]	点击元素：('class', 'uploadcrowd')
+INFO	2020-08-21 09:43:01,236	[basepage.py:50]	点击元素：('xpath', "//span[@class='ant-radio']//input[@class='ant-radio-input']")
+INFO	2020-08-21 09:43:03,300	[basepage.py:50]	点击元素：('xpath', "//div[@class='myRadio ant-radio-group ant-radio-group-outline ant-radio-group-default']//label[@class='ant-radio-wrapper']//input[@class='ant-radio-input']")
+INFO	2020-08-21 09:43:04,464	[basepage.py:89]	输入文本：华泰通安网络有限公司
+INFO	2020-08-21 09:44:51,074	[basepage.py:62]	打开网页：http://192.168.0.202/precision/login;JSESSIONID=e10b9d04-5661-46b7-9841-ec823cbe4907
+INFO	2020-08-21 09:44:52,271	[basepage.py:89]	输入文本：test901
+INFO	2020-08-21 09:44:53,350	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 09:44:56,128	[basepage.py:50]	点击元素：('xpath', "//input[@class='logininfo_submit']")
+INFO	2020-08-21 09:44:58,178	[basepage.py:50]	点击元素：('xpath', '/html/body/div[1]/table/tbody/tr/td/table/tbody/tr/td[1]/div/div/div/table/tbody[1]/tr[2]/td/div')
+INFO	2020-08-21 09:44:59,220	[basepage.py:50]	点击元素：('xpath', '/html/body/div[1]/table/tbody/tr/td/table/tbody/tr/td[3]/div/div/div/div/div/div/div[1]/button[3]')
+INFO	2020-08-21 09:45:00,301	[basepage.py:50]	点击元素：('class', 'z-bandbox-input')
+INFO	2020-08-21 09:45:01,346	[basepage.py:50]	点击元素：('xpath', '/html/body/div[5]/div/div/div[3]/table/tbody[1]/tr[4]/td/div')
+INFO	2020-08-21 09:45:03,451	[basepage.py:89]	输入文本：黄石金承科技有限公司
+INFO	2020-08-21 09:45:04,517	[basepage.py:50]	点击元素：('xpath', '//tr[4]//td[2]//div[1]//div[1]//span[1]//a[1]//i[1]')
+INFO	2020-08-21 09:45:05,564	[basepage.py:50]	点击元素：('xpath', '//body/div/ul/li[1]')
+INFO	2020-08-21 09:45:06,652	[basepage.py:89]	输入文本：617242
+INFO	2020-08-21 09:45:07,693	[basepage.py:50]	点击元素：('xpath', "//table[@class='z-vbox']//table//tbody//tr//td//table[@class='z-hbox']//tbody//tr//td//table//tbody//tr//td//button[@class='z-button']")
+INFO	2020-08-21 09:45:08,757	[basepage.py:89]	输入文本：471477
+INFO	2020-08-21 09:45:09,804	[basepage.py:50]	点击元素：('xpath', "//table[@class='z-vbox']//table//tbody//tr//td//table[@class='z-hbox']//tbody//tr//td//table//tbody//tr//td//button[@class='z-button']")
+INFO	2020-08-21 09:45:10,848	[basepage.py:50]	点击元素：('xpath', "//button[@class='btn btn-primary z-button']")
+INFO	2020-08-21 09:45:11,359	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 09:45:12,629	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 09:45:13,740	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 09:45:14,795	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:45:17,849	[basepage.py:50]	点击元素：('xpath', "//aside[@class='ant-layout-sider ant-layout-sider-dark']//li[2]")
+INFO	2020-08-21 09:45:20,014	[basepage.py:50]	点击元素：('xpath', "//button[@class='g_btn_normal btn4 ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:45:21,107	[basepage.py:50]	点击元素：('class', 'uploadcrowd')
+INFO	2020-08-21 09:45:22,176	[basepage.py:50]	点击元素：('xpath', "//span[@class='ant-radio']//input[@class='ant-radio-input']")
+INFO	2020-08-21 09:45:24,243	[basepage.py:50]	点击元素：('xpath', "//div[@class='myRadio ant-radio-group ant-radio-group-outline ant-radio-group-default']//label[@class='ant-radio-wrapper']//input[@class='ant-radio-input']")
+INFO	2020-08-21 09:45:25,398	[basepage.py:89]	输入文本：盟新信息有限公司
+INFO	2020-08-21 09:45:26,491	[basepage.py:50]	点击元素：('xpath', "//button[@class='upbtn ant-btn']")
+INFO	2020-08-21 09:45:27,581	[basepage.py:50]	点击元素：('xpath', "//div[@class='ant-modal-footer']//button[@class='ant-btn']")
+INFO	2020-08-21 09:52:11,574	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 09:52:12,838	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 09:52:13,944	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 09:52:14,993	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:52:17,031	[basepage.py:50]	点击元素：('xpath', "//body/div[@class='ant-spin-nested-loading']/div[1]")
+INFO	2020-08-21 09:52:19,055	[basepage.py:50]	点击元素：('xpath', "//body/div[@class='ant-spin-nested-loading']/div[1]")
+INFO	2020-08-21 09:55:12,644	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 09:55:13,909	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 09:55:15,011	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 09:55:16,063	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:55:19,115	[basepage.py:50]	点击元素：('xpath', "//li[@class='ant-menu-item ant-menu-item-selected']")
+INFO	2020-08-21 09:55:21,155	[basepage.py:50]	点击元素：('xpath', "//body/div[@class='ant-spin-nested-loading']/div[1]")
+INFO	2020-08-21 09:55:57,054	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 09:55:58,328	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 09:55:59,433	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 09:56:00,482	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:56:03,535	[basepage.py:50]	点击元素：('xpath', '/html/body/div/div/div/div/section/aside/div/ul/li[3]')
+INFO	2020-08-21 09:56:05,575	[basepage.py:50]	点击元素：('xpath', "//body/div[@class='ant-spin-nested-loading']/div[1]")
+INFO	2020-08-21 09:57:35,325	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 09:57:36,596	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 09:57:37,698	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 09:57:38,748	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:59:14,685	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 09:59:15,965	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 09:59:17,062	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 09:59:18,117	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:59:21,171	[basepage.py:50]	点击元素：('xpath', '/html/body/div/div/div/div/section/aside/div/ul/li[3]')
+INFO	2020-08-21 09:59:23,262	[basepage.py:50]	点击元素：('xpath', "//button[@class='g_btn_normal btn4 ant-btn ant-btn-primary']")
+INFO	2020-08-21 09:59:24,332	[basepage.py:50]	点击元素：('xpath', "//span[@class='ant-radio']//input[@class='ant-radio-input']")
+INFO	2020-08-21 09:59:26,395	[basepage.py:50]	点击元素：('xpath', "//div[@class='myRadio ant-radio-group ant-radio-group-outline ant-radio-group-default']//label[@class='ant-radio-wrapper']//input[@class='ant-radio-input']")
+INFO	2020-08-21 09:59:27,543	[basepage.py:89]	输入文本：迪摩网络有限公司
+INFO	2020-08-21 09:59:28,609	[basepage.py:50]	点击元素：('xpath', "//button[@class='upbtn ant-btn']")
+INFO	2020-08-21 09:59:28,609	[basepage.py:125]	上传文件（C:\Users\Administrator\Desktop\sww11.zip）
+INFO	2020-08-21 10:01:30,729	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:01:31,995	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:01:33,095	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:01:34,145	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:01:37,201	[basepage.py:50]	点击元素：('xpath', '/html/body/div/div/div/div/section/aside/div/ul/li[3]')
+INFO	2020-08-21 10:01:39,299	[basepage.py:50]	点击元素：('xpath', "//button[@class='g_btn_normal btn4 ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:01:40,362	[basepage.py:50]	点击元素：('xpath', "//span[@class='ant-radio']//input[@class='ant-radio-input']")
+INFO	2020-08-21 10:01:42,423	[basepage.py:50]	点击元素：('xpath', "//div[@class='myRadio ant-radio-group ant-radio-group-outline ant-radio-group-default']//label[@class='ant-radio-wrapper']//input[@class='ant-radio-input']")
+INFO	2020-08-21 10:01:43,581	[basepage.py:89]	输入文本：国讯传媒有限公司
+INFO	2020-08-21 10:01:44,643	[basepage.py:50]	点击元素：('xpath', "//button[@class='upbtn ant-btn']")
+INFO	2020-08-21 10:01:44,643	[basepage.py:125]	上传文件（C:\Users\Administrator\Desktop\sww11.zip）
+INFO	2020-08-21 10:01:49,850	[basepage.py:89]	输入文本：sww
+INFO	2020-08-21 10:04:01,481	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:04:02,744	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:04:03,845	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:04:04,896	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:04:08,957	[basepage.py:50]	点击元素：('xpath', "//aside[@class='ant-layout-sider ant-layout-sider-dark']//li[2]")
+INFO	2020-08-21 10:04:11,114	[basepage.py:50]	点击元素：('xpath', "//button[@class='g_btn_normal btn4 ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:04:12,207	[basepage.py:50]	点击元素：('class', 'uploadcrowd')
+INFO	2020-08-21 10:04:13,274	[basepage.py:50]	点击元素：('xpath', "//span[@class='ant-radio']//input[@class='ant-radio-input']")
+INFO	2020-08-21 10:04:15,341	[basepage.py:50]	点击元素：('xpath', "//div[@class='myRadio ant-radio-group ant-radio-group-outline ant-radio-group-default']//label[@class='ant-radio-wrapper']//input[@class='ant-radio-input']")
+INFO	2020-08-21 10:04:16,494	[basepage.py:89]	输入文本：七喜科技有限公司
+INFO	2020-08-21 10:04:17,562	[basepage.py:50]	点击元素：('xpath', "//button[@class='upbtn ant-btn']")
+INFO	2020-08-21 10:04:19,653	[basepage.py:50]	点击元素：('xpath', "//div[@class='ant-modal-footer']//button[@class='ant-btn']")
+INFO	2020-08-21 10:05:59,590	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:06:00,864	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:06:01,961	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:06:03,013	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:07:01,629	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:07:02,902	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:07:04,004	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:07:05,055	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:07:09,118	[basepage.py:50]	点击元素：('xpath', "//aside[@class='ant-layout-sider ant-layout-sider-dark']//li[2]")
+INFO	2020-08-21 10:07:11,275	[basepage.py:50]	点击元素：('xpath', "//button[@class='g_btn_normal btn4 ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:07:12,363	[basepage.py:50]	点击元素：('class', 'uploadcrowd')
+INFO	2020-08-21 10:07:13,430	[basepage.py:50]	点击元素：('xpath', "//span[@class='ant-radio']//input[@class='ant-radio-input']")
+INFO	2020-08-21 10:07:15,495	[basepage.py:50]	点击元素：('xpath', "//div[@class='myRadio ant-radio-group ant-radio-group-outline ant-radio-group-default']//label[@class='ant-radio-wrapper']//input[@class='ant-radio-input']")
+INFO	2020-08-21 10:07:16,664	[basepage.py:89]	输入文本：浙大万朋信息有限公司
+INFO	2020-08-21 10:07:17,736	[basepage.py:50]	点击元素：('xpath', "//button[@class='upbtn ant-btn']")
+INFO	2020-08-21 10:07:19,821	[basepage.py:50]	点击元素：('xpath', "//div[@class='ant-modal-footer']//button[@class='ant-btn']")
+INFO	2020-08-21 10:07:48,443	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:07:49,701	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:07:50,805	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:07:51,856	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:07:55,914	[basepage.py:50]	点击元素：('xpath', "//aside[@class='ant-layout-sider ant-layout-sider-dark']//li[2]")
+INFO	2020-08-21 10:07:58,073	[basepage.py:50]	点击元素：('xpath', "//button[@class='g_btn_normal btn4 ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:07:59,165	[basepage.py:50]	点击元素：('class', 'uploadcrowd')
+INFO	2020-08-21 10:08:00,237	[basepage.py:50]	点击元素：('xpath', "//span[@class='ant-radio']//input[@class='ant-radio-input']")
+INFO	2020-08-21 10:08:02,302	[basepage.py:50]	点击元素：('xpath', "//div[@class='myRadio ant-radio-group ant-radio-group-outline ant-radio-group-default']//label[@class='ant-radio-wrapper']//input[@class='ant-radio-input']")
+INFO	2020-08-21 10:08:03,488	[basepage.py:89]	输入文本：惠派国际公司科技有限公司
+INFO	2020-08-21 10:08:04,559	[basepage.py:50]	点击元素：('xpath', "//button[@class='upbtn ant-btn']")
+INFO	2020-08-21 10:08:06,651	[basepage.py:50]	点击元素：('xpath', "//div[@class='ant-modal-footer']//button[@class='ant-btn']")
+INFO	2020-08-21 10:08:06,699	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:08:07,946	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:08:09,052	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:08:10,103	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:09:42,736	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:09:44,003	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:09:45,106	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:09:46,159	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:11:47,525	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:11:48,794	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:11:49,893	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:11:50,948	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:13:20,485	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:13:21,742	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:13:22,846	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:13:23,900	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:15:04,608	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:15:05,873	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:15:06,974	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:15:08,024	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:17:49,583	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:17:50,845	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:17:51,953	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:17:53,004	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:18:34,329	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:18:35,600	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:18:36,709	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:18:37,761	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:19:31,646	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:19:32,925	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:19:34,026	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:19:35,077	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:24:29,604	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:24:30,873	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:24:31,977	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:24:33,025	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:27:15,697	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:27:16,967	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:27:18,067	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:27:19,116	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:27:35,045	[basepage.py:89]	输入文本：sww
+INFO	2020-08-21 10:28:29,170	[basepage.py:62]	打开网页：http://192.168.0.202/precision-web/login#/login?redirect=%2FmenuPage%2FprecisionMarketing
+INFO	2020-08-21 10:28:30,436	[basepage.py:89]	输入文本：swwtest0812
+INFO	2020-08-21 10:28:31,537	[basepage.py:89]	输入文本：123456
+INFO	2020-08-21 10:28:32,590	[basepage.py:50]	点击元素：('xpath', "//button[@class='login-form-button ant-btn ant-btn-primary']")
+INFO	2020-08-21 10:28:49,651	[basepage.py:89]	输入文本：sww
