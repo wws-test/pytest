@@ -30,7 +30,6 @@ class TestCreatpl:
         bd.createcw()
 
     @pytest.mark.dependency(depends=["cart"], scope="session")
-    @pytest.mark.run(order=2)
     @allure.story("审核-任务")
     def test_ch(self, drivers):
         bd = bd_test(drivers)

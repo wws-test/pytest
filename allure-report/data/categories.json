@@ -4,22 +4,22 @@
   "children" : [ {
     "name" : "Test defects",
     "children" : [ {
-      "name" : "selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=84.0.4147.135)",
+      "name" : "TypeError: 'method' object is not iterable",
       "children" : [ {
         "name" : "test_003",
-        "uid" : "c77828abd8ce2cc6",
-        "parentUid" : "e157146fde98e1a53a5b8aeb60d1e697",
+        "uid" : "d25a48e07134ff4a",
+        "parentUid" : "0e7a5fb7728e90174c6e8a3d169c802c",
         "status" : "broken",
         "time" : {
-          "start" : 1597976841117,
-          "stop" : 1597976867443,
-          "duration" : 26326
+          "start" : 1598005247185,
+          "stop" : 1598005252653,
+          "duration" : 5468
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ ]
       } ],
-      "uid" : "e157146fde98e1a53a5b8aeb60d1e697"
+      "uid" : "0e7a5fb7728e90174c6e8a3d169c802c"
     } ],
     "uid" : "bdbf199525818fae7a8651db9eafe741"
   } ]

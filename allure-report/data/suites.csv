@@ -1,8 +1,8 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"broken","Fri Aug 21 10:27:21 CST 2020","Fri Aug 21 10:27:47 CST 2020","26326","testcase","Test_ayx","TestCreatpl","","","test_003",""
-"skipped","Fri Aug 21 10:27:13 CST 2020","Fri Aug 21 10:27:13 CST 2020","0","testcase","Test_BD","TestCreatpl","","","test_cw",""
-"skipped","Fri Aug 21 10:27:13 CST 2020","Fri Aug 21 10:27:13 CST 2020","0","testcase","Test_BD","TestCreatpl","","","test_ch",""
-"skipped","Fri Aug 21 10:27:13 CST 2020","Fri Aug 21 10:27:13 CST 2020","0","testcase","Test_ayx","TestCreatpl","","","test_002",""
-"skipped","Fri Aug 21 10:27:13 CST 2020","Fri Aug 21 10:27:13 CST 2020","0","testcase","Test_ayx","TestCreatpl","","","test_001","点击营销
+"skipped","Fri Aug 21 18:20:40 CST 2020","Fri Aug 21 18:20:40 CST 2020","0","testcase","Test_ayx","TestCreatpl","","","test_002",""
+"skipped","Fri Aug 21 18:20:40 CST 2020","Fri Aug 21 18:20:40 CST 2020","0","testcase","Test_BD","TestCreatpl","","","test_cw",""
+"skipped","Fri Aug 21 18:20:40 CST 2020","Fri Aug 21 18:20:40 CST 2020","0","testcase","Test_ayx","TestCreatpl","","","test_001","点击营销
             创建计划
             选择人群包-输入计划内容"
+"broken","Fri Aug 21 18:20:47 CST 2020","Fri Aug 21 18:20:52 CST 2020","5468","testcase","Test_ayx","TestCreatpl","","","test_003",""
+"skipped","Fri Aug 21 18:20:40 CST 2020","Fri Aug 21 18:20:40 CST 2020","0","testcase","Test_BD","TestCreatpl","","","test_ch",""

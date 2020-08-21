@@ -1,4 +1,5 @@
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, ElementNotVisibleException, ElementNotSelectableException
+from selenium.webdriver.chrome import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from config.conf import LOCATE_MODE
@@ -7,6 +8,7 @@ from tools.logger import log
 from selenium.webdriver.support.ui import Select
 from common.readelement import Element
 from common.upload_file import upload
+from selenium.webdriver.remote.webdriver import WebDriver
 search = Element('search')
 
 
@@ -14,11 +16,12 @@ class Page(object):
     '''
     page基类，所有page都应该继承该类
     '''
-
-    def __init__(self, driver):
+    def __init__(self, driver: WebDriver):
+        # self.driver = webdriver.Chrome()
         self.driver = driver
         self.timeout = 30
         self.wait = WebDriverWait(self.driver, self.timeout)
+
 
     @staticmethod
     def element_locator(func, locator):
@@ -64,7 +67,7 @@ class Page(object):
             raise TimeoutException("打开%s超时请检查网络或网址服务器" % base_url)
 
     def switch_frame(self, loc):
-        return self.driver.switch_to_frame(loc)
+        return self.driver.switch_to.frame(loc)
 
     def script(self, src):
         self.driver.execute_script(src)
@@ -110,8 +113,8 @@ class Page(object):
 
 
 
-    def display(self, locator):
-        self.driver.is_displayed(locator)
+    # def display(self, locator):
+    #     self.driver.is_displayed(locator)
 
     def upload_file(self, filename, browser_type="chrome"):
         '''
@@ -130,6 +133,10 @@ class Page(object):
             raise e
         else:
             sleep(2)
+    def wait(self):
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException])
+        # ww = wait.until(EC.element_to_be_clickable((locator)))
 
 
 if __name__ == '__main__':
