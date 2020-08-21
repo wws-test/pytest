@@ -40,7 +40,7 @@ class upload(Page):
         self.isclick(search['确定'])
 
     def search_r(self):
-        self.send_key(search['人群查询'], "sww")
+        self.send_key(search['人群查询'], "ww")
         self.isclick(search['查询'])
         self.display(search['查询结果'])
 
