@@ -2,6 +2,7 @@ import win32api
 import win32con
 from selenium.common.exceptions import TimeoutException, ElementNotVisibleException, ElementNotSelectableException
 from selenium.webdriver.chrome import webdriver
+from  selenium import  webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from config.conf import LOCATE_MODE
@@ -138,7 +139,10 @@ class Page(object):
         # ww = wait.until(EC.element_to_be_clickable((locator)))
 
     def max(self):
-        self.driver.set_window_size(win32api.GetSystemMetrics(win32con.SM_CXSCREEN),win32api.GetSystemMetrics(win32con.SM_CYSCREEN))
+        self.driver.set_window_size(
+            win32api.GetSystemMetrics(
+                win32con.SM_CXSCREEN), win32api.GetSystemMetrics(
+                win32con.SM_CYSCREEN))
 
 
 if __name__ == '__main__':
