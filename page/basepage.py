@@ -137,6 +137,8 @@ class Page(object):
         wait = WebDriverWait(self.driver, 10, poll_frequency=1,
                              ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException])
         # ww = wait.until(EC.element_to_be_clickable((locator)))
+    def max(self):
+        self.driver.maximize_window()
 
 
 if __name__ == '__main__':

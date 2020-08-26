@@ -23,6 +23,7 @@ class TestCreatpl:
         Create = Createpl(drivers)
         Create.get_url(ini.url)
         Create.login()
+        Create.max()
 
     # @pytest.mark.skip(reason="no way of currently testing this")
     # @pytest.mark.run(order=1)
