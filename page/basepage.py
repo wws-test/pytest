@@ -1,3 +1,5 @@
+import win32api
+import win32con
 from selenium.common.exceptions import TimeoutException, ElementNotVisibleException, ElementNotSelectableException
 from selenium.webdriver.chrome import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
@@ -16,12 +18,12 @@ class Page(object):
     '''
     page基类，所有page都应该继承该类
     '''
+
     def __init__(self, driver: WebDriver):
         # self.driver = webdriver.Chrome()
         self.driver = driver
         self.timeout = 30
         self.wait = WebDriverWait(self.driver, self.timeout)
-
 
     @staticmethod
     def element_locator(func, locator):
@@ -91,9 +93,8 @@ class Page(object):
         ele.send_keys(text)
         log.info("输入文本：{}".format(text))
 
-
     def focus(self, locator):
-        #聚焦到某个元素
+        # 聚焦到某个元素
         target = self.find_element(locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", target)
         sleep(0.5)
@@ -109,9 +110,6 @@ class Page(object):
         _text = self.find_element(locator).text
         log.info("获取文本：{}".format(_text))
         return _text
-
-
-
 
     # def display(self, locator):
     #     self.driver.is_displayed(locator)
@@ -133,12 +131,14 @@ class Page(object):
             raise e
         else:
             sleep(2)
+
     def wait(self):
-        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
-                             ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException])
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1, ignored_exceptions=[
+                             ElementNotVisibleException, ElementNotSelectableException])
         # ww = wait.until(EC.element_to_be_clickable((locator)))
+
     def max(self):
-        self.driver.maximize_window()
+        self.driver.set_window_size(win32api.GetSystemMetrics(win32con.SM_CXSCREEN),win32api.GetSystemMetrics(win32con.SM_CYSCREEN))
 
 
 if __name__ == '__main__':
