@@ -20,7 +20,7 @@ class upload(Page):
         sleep(1)
         self.isclick(search['定向拓展'])
         self.send_key(search['人群名称md'], name)
-        self.isclick(search['点击上传'])
+        # self.isclick(search['点击上传'])
         self.isclick(search['取消'])
 
     def search_r(self):
@@ -30,7 +30,7 @@ class upload(Page):
         self.send_key(search['人群查询'], "ww")
         self.isclick(search['查询'])
 
-
+    #       TODO(LoveLinXue.com): 还没写完逻辑
     def imagine(self):
         return [x.text for x in self.find_elements(search['查询结果'])]
     # def up1(self):

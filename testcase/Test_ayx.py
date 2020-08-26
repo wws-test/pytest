@@ -24,8 +24,8 @@ class TestCreatpl:
         Create.get_url(ini.url)
         Create.login()
 
-    @pytest.mark.skip(reason="no way of currently testing this")
-    @pytest.mark.run(order=1)
+    # @pytest.mark.skip(reason="no way of currently testing this")
+    # @pytest.mark.run(order=1)
     @allure.story("创建计划-输入内容-提交计划")
     def test_001(self, drivers):
         """点击营销
@@ -36,7 +36,7 @@ class TestCreatpl:
         Create.Selectcrowd()
         Create.Fillplan()
 
-    @pytest.mark.skip(reason="no way of currently testing this")
+    # @pytest.mark.skip(reason="no way of currently testing this")
     @allure.story("创建人群包-创建")
     def test_002(self, drivers):
         uploading = upload(drivers)

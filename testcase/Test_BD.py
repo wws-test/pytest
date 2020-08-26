@@ -23,13 +23,13 @@ class TestCreatpl:
         bd.get_url(ini.bdurl)
         bd.login()
 
-    @pytest.mark.skip(reason="no way of currently testing this")
+    # @pytest.mark.skip(reason="no way of currently testing this")
     @allure.story("创建人群包-搜索")
     def test_cw(self, drivers):
         bd = bd_test(drivers)
         bd.createcw()
 
-    @pytest.mark.dependency(depends=["cart"], scope="session")
+    # @pytest.mark.dependency(depends=["cart"], scope="session")
     @allure.story("审核-任务")
     def test_ch(self, drivers):
         bd = bd_test(drivers)
