@@ -14,8 +14,8 @@ class upload(Page):
         sleep(1)
         self.isclick(search['营销标签'])
         sleep(1)
-        self.isclick(search['人群包管理'])
-        self.isclick(search['上传人群包'])
+        self.isclick(search['创建'])
+        self.isclick(search['上传人群'])
         self.isclick(search['MD5'])
         sleep(1)
         self.isclick(search['定向拓展'])
@@ -30,7 +30,7 @@ class upload(Page):
         self.send_key(search['人群查询'], "ww")
         self.isclick(search['查询'])
 
-    #       TODO(LoveLinXue.com): 还没写完逻辑
+    #   TODO(LoveLinXue.com): 还没写完逻辑
     def imagine(self):
         return [x.text for x in self.find_elements(search['查询结果'])]
     # def up1(self):
@@ -43,7 +43,6 @@ class upload(Page):
     #     self.send_key(search['人群名称md'], name)
     #     self.isclick(search['点击上传'])
     #     self.isclick(search['确定'])
-
 
     def text(self):
         self.get_text(search['人群名称'])

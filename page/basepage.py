@@ -15,6 +15,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 search = Element('search')
 
 
+
 class Page(object):
     '''
     page基类，所有page都应该继承该类
@@ -22,6 +23,9 @@ class Page(object):
 
     def __init__(self, driver: WebDriver):
         # self.driver = webdriver.Chrome()
+        options = webdriver.ChromeOptions()
+        options.add_argument('start - maximized')
+        self.driver =  webdriver.Chrome(options=options)
         self.driver = driver
         self.timeout = 30
         self.wait = WebDriverWait(self.driver, self.timeout)
@@ -138,11 +142,6 @@ class Page(object):
                              ElementNotVisibleException, ElementNotSelectableException])
         # ww = wait.until(EC.element_to_be_clickable((locator)))
 
-    def max(self):
-        self.driver.set_window_size(
-            win32api.GetSystemMetrics(
-                win32con.SM_CXSCREEN), win32api.GetSystemMetrics(
-                win32con.SM_CYSCREEN))
 
 
 if __name__ == '__main__':
