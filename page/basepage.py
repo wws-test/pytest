@@ -1,8 +1,4 @@
-import win32api
-import win32con
 from selenium.common.exceptions import TimeoutException, ElementNotVisibleException, ElementNotSelectableException
-from selenium.webdriver.chrome import webdriver
-from  selenium import  webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from config.conf import LOCATE_MODE
@@ -11,9 +7,7 @@ from tools.logger import log
 from selenium.webdriver.support.ui import Select
 from common.readelement import Element
 from common.upload_file import upload
-from selenium.webdriver.remote.webdriver import WebDriver
 search = Element('search')
-
 
 
 class Page(object):
@@ -21,14 +15,12 @@ class Page(object):
     page基类，所有page都应该继承该类
     '''
 
-    def __init__(self, driver: WebDriver):
-        # self.driver = webdriver.Chrome()
-        options = webdriver.ChromeOptions()
-        options.add_argument('start - maximized')
-        self.driver =  webdriver.Chrome(options=options)
+    def __init__(self, driver):
+        # 要引用driver，但是这里还未定义具体的浏览器，所以用self.driver代替
         self.driver = driver
         self.timeout = 30
         self.wait = WebDriverWait(self.driver, self.timeout)
+
 
     @staticmethod
     def element_locator(func, locator):
@@ -141,7 +133,6 @@ class Page(object):
         wait = WebDriverWait(self.driver, 10, poll_frequency=1, ignored_exceptions=[
                              ElementNotVisibleException, ElementNotSelectableException])
         # ww = wait.until(EC.element_to_be_clickable((locator)))
-
 
 
 if __name__ == '__main__':

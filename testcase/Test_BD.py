@@ -24,12 +24,14 @@ class TestCreatpl:
         bd.login()
 
     # @pytest.mark.skip(reason="no way of currently testing this")
+    @pytest.mark.bd
     @allure.story("创建人群包-搜索")
     def test_cw(self, drivers):
         bd = bd_test(drivers)
         bd.createcw()
 
     # @pytest.mark.dependency(depends=["cart"], scope="session")
+    @pytest.mark.bd
     @allure.story("审核-任务")
     def test_ch(self, drivers):
         bd = bd_test(drivers)

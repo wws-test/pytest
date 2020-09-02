@@ -3,7 +3,6 @@
 登录: "xpath==//input[@class='logininfo_submit']"
 审核: "xpath==//body[@class='webkit chrome iceblue']//tr//tr//tr[1]//td[9]//div[1]//button[1]"
 通过: "xpath==//input[contains(@type,'radio')and contains(@value,'2')]"
-
 确定: "xpath==//button[@class='btn btn-primary z-button']"
 人群包管理: "xpath==/html/body/div[1]/table/tbody/tr/td/table/tbody/tr/td[1]/div/div/div/table/tbody[1]/tr[2]/td/div"
 创建人群包: "xpath==/html/body/div[1]/table/tbody/tr/td/table/tbody/tr/td[3]/div/div/div/div/div/div/div[1]/button[3]"

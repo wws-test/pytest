@@ -19,8 +19,10 @@ driver = None
 def drivers(request):
     global driver
     if driver is None:
-        driver = webdriver.Chrome()
-        driver.maximize_window()
+        options = webdriver.ChromeOptions()
+        # TODO 继续测试最大化
+        options.add_argument('--start-maximized')
+        driver = webdriver.Chrome(options=options)
     inspect_element()
 
     def fn():

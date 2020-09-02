@@ -27,8 +27,9 @@ class TestCreatpl:
 
     # @pytest.mark.skip(reason="no way of currently testing this")
     # @pytest.mark.run(order=1)
+    @pytest.mark.ayx
     @allure.story("创建计划-输入内容-提交计划")
-    def test_001(self, drivers):
+    def test_cp(self, drivers):
         """点击营销
             创建计划
             选择人群包-输入计划内容"""
@@ -38,13 +39,14 @@ class TestCreatpl:
         Create.Fillplan()
 
     # @pytest.mark.skip(reason="no way of currently testing this")
+    @pytest.mark.ayx
     @allure.story("创建人群包-创建")
-    def test_002(self, drivers):
+    def test_cr(self, drivers):
         uploading = upload(drivers)
         uploading.up()
-
+    @pytest.mark.ayx
     @allure.story("创建人群包-搜索")
-    def test_003(self, drivers):
+    def test_sr(self, drivers):
         uploading = upload(drivers)
         uploading.search_r()
 
