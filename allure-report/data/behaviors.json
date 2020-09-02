@@ -2,72 +2,17 @@
   "uid" : "b1a8273437954620fa374b796ffaacdd",
   "name" : "behaviors",
   "children" : [ {
-    "name" : "jzyx-基准流程",
-    "children" : [ {
-      "name" : "创建计划-输入内容-提交计划",
-      "children" : [ {
-        "name" : "test_001",
-        "uid" : "df90b8ed6bda4c58",
-        "parentUid" : "021d77f73f9fdd9c71b8e999865122e5",
-        "status" : "skipped",
-        "time" : {
-          "start" : 1598005240618,
-          "stop" : 1598005240618,
-          "duration" : 0
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ ]
-      } ],
-      "uid" : "021d77f73f9fdd9c71b8e999865122e5"
-    }, {
-      "name" : "创建人群包-创建",
-      "children" : [ {
-        "name" : "test_002",
-        "uid" : "bbc029a94abbf23e",
-        "parentUid" : "a922f12f91e75a934ca607afab52c38b",
-        "status" : "skipped",
-        "time" : {
-          "start" : 1598005240626,
-          "stop" : 1598005240626,
-          "duration" : 0
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ ]
-      } ],
-      "uid" : "a922f12f91e75a934ca607afab52c38b"
-    }, {
-      "name" : "创建人群包-搜索",
-      "children" : [ {
-        "name" : "test_003",
-        "uid" : "d25a48e07134ff4a",
-        "parentUid" : "3fabf49fbb0baa099922a400806ee12c",
-        "status" : "broken",
-        "time" : {
-          "start" : 1598005247185,
-          "stop" : 1598005252653,
-          "duration" : 5468
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ ]
-      } ],
-      "uid" : "3fabf49fbb0baa099922a400806ee12c"
-    } ],
-    "uid" : "491e5704552628c2d87975ecea9645ad"
-  }, {
     "name" : "bd-后台审核",
     "children" : [ {
       "name" : "审核-任务",
       "children" : [ {
         "name" : "test_ch",
-        "uid" : "8ac8b2f001ed89a3",
+        "uid" : "94ec955cba9a4b7f",
         "parentUid" : "a32056b5293e6e8acd61a40eb0addf45",
-        "status" : "skipped",
+        "status" : "broken",
         "time" : {
-          "start" : 1598005240622,
-          "stop" : 1598005240622,
+          "start" : 1598941965920,
+          "stop" : 1598941965920,
           "duration" : 0
         },
         "flaky" : false,
@@ -79,12 +24,12 @@
       "name" : "创建人群包-搜索",
       "children" : [ {
         "name" : "test_cw",
-        "uid" : "225acb3001ab1252",
+        "uid" : "e06627a193ed2f57",
         "parentUid" : "09cc36253431da8f79cb794943e5703e",
-        "status" : "skipped",
+        "status" : "broken",
         "time" : {
-          "start" : 1598005240624,
-          "stop" : 1598005240624,
+          "start" : 1598941965920,
+          "stop" : 1598941965920,
           "duration" : 0
         },
         "flaky" : false,
@@ -94,5 +39,60 @@
       "uid" : "09cc36253431da8f79cb794943e5703e"
     } ],
     "uid" : "369a9652f511bd7f361e9545c14bdbca"
+  }, {
+    "name" : "jzyx-基准流程",
+    "children" : [ {
+      "name" : "创建人群包-创建",
+      "children" : [ {
+        "name" : "test_002",
+        "uid" : "df615900d685c8a7",
+        "parentUid" : "a922f12f91e75a934ca607afab52c38b",
+        "status" : "broken",
+        "time" : {
+          "start" : 1598941968007,
+          "stop" : 1598941968007,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "a922f12f91e75a934ca607afab52c38b"
+    }, {
+      "name" : "创建计划-输入内容-提交计划",
+      "children" : [ {
+        "name" : "test_001",
+        "uid" : "e54ccebe66ce11ca",
+        "parentUid" : "021d77f73f9fdd9c71b8e999865122e5",
+        "status" : "broken",
+        "time" : {
+          "start" : 1598941968050,
+          "stop" : 1598941968050,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "021d77f73f9fdd9c71b8e999865122e5"
+    }, {
+      "name" : "创建人群包-搜索",
+      "children" : [ {
+        "name" : "test_003",
+        "uid" : "8c01506759bbecfd",
+        "parentUid" : "3fabf49fbb0baa099922a400806ee12c",
+        "status" : "broken",
+        "time" : {
+          "start" : 1598941968365,
+          "stop" : 1598941968365,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "3fabf49fbb0baa099922a400806ee12c"
+    } ],
+    "uid" : "491e5704552628c2d87975ecea9645ad"
   } ]
 }

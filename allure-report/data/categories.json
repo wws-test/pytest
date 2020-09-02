@@ -4,22 +4,74 @@
   "children" : [ {
     "name" : "Test defects",
     "children" : [ {
-      "name" : "TypeError: 'method' object is not iterable",
+      "name" : "TypeError: __init__() takes 1 positional argument but 2 were given",
       "children" : [ {
-        "name" : "test_003",
-        "uid" : "d25a48e07134ff4a",
-        "parentUid" : "0e7a5fb7728e90174c6e8a3d169c802c",
+        "name" : "test_ch",
+        "uid" : "94ec955cba9a4b7f",
+        "parentUid" : "b2a7a9f04683f02bdd7e3d3ba61646c8",
         "status" : "broken",
         "time" : {
-          "start" : 1598005247185,
-          "stop" : 1598005252653,
-          "duration" : 5468
+          "start" : 1598941965920,
+          "stop" : 1598941965920,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_cw",
+        "uid" : "e06627a193ed2f57",
+        "parentUid" : "b2a7a9f04683f02bdd7e3d3ba61646c8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1598941965920,
+          "stop" : 1598941965920,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_002",
+        "uid" : "df615900d685c8a7",
+        "parentUid" : "b2a7a9f04683f02bdd7e3d3ba61646c8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1598941968007,
+          "stop" : 1598941968007,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_001",
+        "uid" : "e54ccebe66ce11ca",
+        "parentUid" : "b2a7a9f04683f02bdd7e3d3ba61646c8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1598941968050,
+          "stop" : 1598941968050,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_003",
+        "uid" : "8c01506759bbecfd",
+        "parentUid" : "b2a7a9f04683f02bdd7e3d3ba61646c8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1598941968365,
+          "stop" : 1598941968365,
+          "duration" : 0
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ ]
       } ],
-      "uid" : "0e7a5fb7728e90174c6e8a3d169c802c"
+      "uid" : "b2a7a9f04683f02bdd7e3d3ba61646c8"
     } ],
     "uid" : "bdbf199525818fae7a8651db9eafe741"
   } ]

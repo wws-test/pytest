@@ -1,8 +1,8 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"skipped","Fri Aug 21 18:20:40 CST 2020","Fri Aug 21 18:20:40 CST 2020","0","testcase","Test_ayx","TestCreatpl","","","test_002",""
-"skipped","Fri Aug 21 18:20:40 CST 2020","Fri Aug 21 18:20:40 CST 2020","0","testcase","Test_BD","TestCreatpl","","","test_cw",""
-"skipped","Fri Aug 21 18:20:40 CST 2020","Fri Aug 21 18:20:40 CST 2020","0","testcase","Test_ayx","TestCreatpl","","","test_001","点击营销
+"broken","Tue Sep 01 14:32:48 CST 2020","Tue Sep 01 14:32:48 CST 2020","0","testcase","Test_ayx","TestCreatpl","","","test_003",""
+"broken","Tue Sep 01 14:32:48 CST 2020","Tue Sep 01 14:32:48 CST 2020","0","testcase","Test_ayx","TestCreatpl","","","test_002",""
+"broken","Tue Sep 01 14:32:48 CST 2020","Tue Sep 01 14:32:48 CST 2020","0","testcase","Test_ayx","TestCreatpl","","","test_001","点击营销
             创建计划
             选择人群包-输入计划内容"
-"broken","Fri Aug 21 18:20:47 CST 2020","Fri Aug 21 18:20:52 CST 2020","5468","testcase","Test_ayx","TestCreatpl","","","test_003",""
-"skipped","Fri Aug 21 18:20:40 CST 2020","Fri Aug 21 18:20:40 CST 2020","0","testcase","Test_BD","TestCreatpl","","","test_ch",""
+"broken","Tue Sep 01 14:32:45 CST 2020","Tue Sep 01 14:32:45 CST 2020","0","testcase","Test_BD","TestCreatpl","","","test_ch",""
+"broken","Tue Sep 01 14:32:45 CST 2020","Tue Sep 01 14:32:45 CST 2020","0","testcase","Test_BD","TestCreatpl","","","test_cw",""

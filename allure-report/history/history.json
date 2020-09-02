@@ -2,19 +2,19 @@
   "9a5cf2273192130a93ea0916154331e5" : {
     "statistic" : {
       "failed" : 0,
-      "broken" : 0,
-      "skipped" : 1,
+      "broken" : 1,
+      "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "8ac8b2f001ed89a3",
-      "status" : "skipped",
-      "statusDetails" : "Skipped: test_ch depends on cart",
+      "uid" : "94ec955cba9a4b7f",
+      "status" : "broken",
+      "statusDetails" : "TypeError: __init__() takes 1 positional argument but 2 were given",
       "time" : {
-        "start" : 1598005240622,
-        "stop" : 1598005240622,
+        "start" : 1598941965920,
+        "stop" : 1598941965920,
         "duration" : 0
       }
     } ]
@@ -22,19 +22,19 @@
   "0b303d5d0384e11b3fd1572c42308795" : {
     "statistic" : {
       "failed" : 0,
-      "broken" : 0,
-      "skipped" : 1,
+      "broken" : 1,
+      "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "bbc029a94abbf23e",
-      "status" : "skipped",
-      "statusDetails" : "Skipped: no way of currently testing this",
+      "uid" : "df615900d685c8a7",
+      "status" : "broken",
+      "statusDetails" : "TypeError: __init__() takes 1 positional argument but 2 were given",
       "time" : {
-        "start" : 1598005240626,
-        "stop" : 1598005240626,
+        "start" : 1598941968007,
+        "stop" : 1598941968007,
         "duration" : 0
       }
     } ]
@@ -49,32 +49,32 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "d25a48e07134ff4a",
+      "uid" : "8c01506759bbecfd",
       "status" : "broken",
-      "statusDetails" : "TypeError: 'method' object is not iterable",
+      "statusDetails" : "TypeError: __init__() takes 1 positional argument but 2 were given",
       "time" : {
-        "start" : 1598005247185,
-        "stop" : 1598005252653,
-        "duration" : 5468
+        "start" : 1598941968365,
+        "stop" : 1598941968365,
+        "duration" : 0
       }
     } ]
   },
   "681ee969e1498575d19cc754c7ee4946" : {
     "statistic" : {
       "failed" : 0,
-      "broken" : 0,
-      "skipped" : 1,
+      "broken" : 1,
+      "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "225acb3001ab1252",
-      "status" : "skipped",
-      "statusDetails" : "Skipped: no way of currently testing this",
+      "uid" : "e06627a193ed2f57",
+      "status" : "broken",
+      "statusDetails" : "TypeError: __init__() takes 1 positional argument but 2 were given",
       "time" : {
-        "start" : 1598005240624,
-        "stop" : 1598005240624,
+        "start" : 1598941965920,
+        "stop" : 1598941965920,
         "duration" : 0
       }
     } ]
@@ -82,19 +82,19 @@
   "3e62b3c9a2bf8951a8507e4aabd0713f" : {
     "statistic" : {
       "failed" : 0,
-      "broken" : 0,
-      "skipped" : 1,
+      "broken" : 1,
+      "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "df90b8ed6bda4c58",
-      "status" : "skipped",
-      "statusDetails" : "Skipped: no way of currently testing this",
+      "uid" : "e54ccebe66ce11ca",
+      "status" : "broken",
+      "statusDetails" : "TypeError: __init__() takes 1 positional argument but 2 were given",
       "time" : {
-        "start" : 1598005240618,
-        "stop" : 1598005240618,
+        "start" : 1598941968050,
+        "stop" : 1598941968050,
         "duration" : 0
       }
     } ]

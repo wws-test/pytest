@@ -5,8 +5,8 @@
     "name" : "jzyx-基准流程",
     "statistic" : {
       "failed" : 0,
-      "broken" : 1,
-      "skipped" : 2,
+      "broken" : 3,
+      "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
       "total" : 3
@@ -16,8 +16,8 @@
     "name" : "bd-后台审核",
     "statistic" : {
       "failed" : 0,
-      "broken" : 0,
-      "skipped" : 2,
+      "broken" : 2,
+      "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
       "total" : 2
