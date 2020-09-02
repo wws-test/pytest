@@ -57,6 +57,7 @@ class Page(object):
     def get_url(self, base_url):
         """打开网址并验证"""
         self.driver.set_window_size(1600,900)
+        log.info("设置页面大小")
         self.driver.set_page_load_timeout(60)
         try:
             self.driver.get(base_url)
