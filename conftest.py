@@ -21,7 +21,7 @@ def drivers(request):
     if driver is None:
         options = webdriver.ChromeOptions()
         # TODO 继续测试最大化
-        options.add_argument('--start-fullscreen')
+        options.add_argument('--headless')
         options.add_argument('--blink-settings=imagesEnabled=false')
         driver = webdriver.Chrome(options=options)
     inspect_element()
