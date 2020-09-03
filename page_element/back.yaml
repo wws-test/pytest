@@ -8,13 +8,9 @@
 创建人群包: "xpath==/html/body/div[1]/table/tbody/tr/td/table/tbody/tr/td[3]/div/div/div/div/div/div/div[1]/button[3]"
 人群包选择: "class==z-bandbox-input"
 下拉框选择: "xpath==/html/body/div[5]/div/div/div[3]/table/tbody[1]/tr[4]/td/div"
-
 适用行业: "xpath==//tr[4]//td[2]//div[1]//div[1]//span[1]//a[1]//i[1]"
-
 行业选择: "xpath==//body/div/ul/li[1]"
-
 人群标签: "xpath==//input[@placeholder='新增标签']"
 添加: "xpath==//table[@class='z-vbox']//table//tbody//tr//td//table[@class='z-hbox']//tbody//tr//td//table//tbody//tr//td//button[@class='z-button']"
 人群名称: "xpath==/html/body/div[4]/div[2]/div/div/div[3]/table/tbody[1]/tr[3]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/input"
-
 确定创建: "xpath==//button[@class='btn btn-primary z-button']"

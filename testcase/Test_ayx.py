@@ -14,7 +14,7 @@ fake = Faker(locale='zh_CN')
 name = fake.name()
 
 
-@allure.feature("jzyx-基准流程")
+@allure.feature("jzyx-基本流程")
 # @pytest.mark.flaky(reruns=2, reruns_delay=5)
 class TestCreatpl:
 
@@ -27,7 +27,7 @@ class TestCreatpl:
 
     # @pytest.mark.skip(reason="no way of currently testing this")
     # @pytest.mark.run(order=1)
-    @pytest.mark.ayx
+    @pytest.mark.zjyx
     @allure.story("创建计划-输入内容-提交计划")
     def test_cp(self, drivers):
         """点击营销
@@ -39,18 +39,18 @@ class TestCreatpl:
         Create.Fillplan()
 
     # @pytest.mark.skip(reason="no way of currently testing this")
-    @pytest.mark.ayx
+    @pytest.mark.jzyx
     @allure.story("创建人群包-创建")
     def test_cr(self, drivers):
         uploading = upload(drivers)
         uploading.up()
-    @pytest.mark.ayx
+    @pytest.mark.jzyx
     @allure.story("创建人群包-搜索")
     def test_sr(self, drivers):
         uploading = upload(drivers)
         uploading.search_r()
 
 
-if __name__ == '__main__':
-    pytest.main(['testcase/Test_yx'])
-    print(name)
+# if __name__ == '__main__':
+#     pytest.main(['testcase/Test_ayx'])
+#     print(name)

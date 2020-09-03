@@ -11,7 +11,7 @@ from config.conf import SCREENSHOT_DIR
 from common.inspect import inspect_element
 from tools.send_mail import send_report
 from tools.time import datetime_strftime, timestamp
-
+from tools.clear import testclear
 driver = None
 
 
@@ -24,6 +24,8 @@ def drivers(request):
         options.add_argument('--blink-settings=imagesEnabled=false')
         driver = webdriver.Chrome(options=options)
     inspect_element()
+    testclear()
+    
 
     def fn():
         driver.quit()

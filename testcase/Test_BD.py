@@ -1,6 +1,4 @@
 ﻿# coding=utf-8
-import os
-from common.readconfig import ini
 import pytest
 import allure
 from page_object.Createplan import *
@@ -38,5 +36,6 @@ class TestCreatpl:
         bd.check()
 
 
-if __name__ == '__main__':
-    pass
+# if __name__ == '__main__':
+#     pytest.main(['testcase/Test_BD'])
+#     print(name)

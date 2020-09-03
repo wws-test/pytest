@@ -7,7 +7,6 @@ from tools.logger import log
 from selenium.webdriver.support.ui import Select
 from common.readelement import Element
 from common.upload_file import upload
-search = Element('search')
 
 
 class Page(object):
