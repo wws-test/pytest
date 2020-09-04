@@ -40,57 +40,19 @@
 0.  实现持续集成测试，自助式测试，一站式测试平台。
 1.  通过yaml作为管理页面元素的工具，使用方便简洁。同时可分离用例与元素，方便元素重复调用。
 2.  二次封装basepage，分离元素定位器，编写用例更快捷，只需考虑元素。
-3.  还有...自己体会...
+3.  pytest管理调度用例，方便调试以及单独项目运行
 
 ## 二、环境安装与配置
 #### （一）开发环境：
-1. JDK1.7 及以上
-2. IDEA 社区版（壕->pro）
-3. Maven 不限
+1. python3 及以上
+2. PYCHARM 社区版（壕->pro）
+3. selenium3 不限
 4. Git  不限
 5. Jenkins 不限
 
-#### （二）部分环境安装细节：
-##### 1. JDK 安装请查阅。https://www.cnblogs.com/ottox/p/3313540.html
-##### 2. Maven 安装与配置。
-- setting配置，主要是国内镜像 阿里云。https://blog.csdn.net/liuhui_306/article/details/52822152
-        - 加速。
-    ```
-    <mirror>
-          <id>alimaven</id>
-          <name>aliyun maven</name>
-          <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-          <mirrorOf>central</mirrorOf>        
-    </mirror>
-    
-    ```
-- 本地localRepository配置。为什么要配置这个？因为默认是放在C盘的。```Default: ${user.home}/.m2/repository。```jar 太多、太大！
-    
-    ```
-    <localRepository>E:\apache-maven-3.5.3\repository</localRepository>
-    ```
-
- - 命令配置。https://www.cnblogs.com/eagle6688/p/7838224.html
-        - 为啥配置这个？因为后面Jenkins如果需要在本地运行的话，需要用到mvn命令。
-![](https://upload-images.jianshu.io/upload_images/1592745-e1794c63508719de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-##### 3. IDEA 安装请查阅，下载社区版本即可。 https://www.jetbrains.com/idea/
-- 编码设置UTF-8：https://blog.csdn.net/frankcheng5143/article/details/50779149
-- 字体设置：https://blog.csdn.net/qq_35246620/article/details/63253518
-- 模板设置：https://blog.csdn.net/xiaoliulang0324/article/details/79030752
-- JDK配置：选择JDK的存放路径。
-- maven配置：file->settings->搜索maven->
-    > Maven home deirectory: maven存放地址。    
-    > User settings file: maven的setting路径。  
-    > Local repository: repository 要存放的路径。   
-
-- 以上配置最好设置成默认配置，这样不用针对每个项目配置。File->Other settings -> Default Settings.
-
-##### 4. Git 安装。
-参考：https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
-##### 5. Jenkins本地安装，只要安装不用创建任务，后面会有任务创建。
-参考：https://www.cnblogs.com/c9999/p/6399367.html。  
+#### （二）环境安装细节：
+##### 1. 环境配置部分不解释了，常规安装，无特殊之处
+##### 2. Jenkins本地安装，因为涉及到截图功能所以暂时不考虑liunx运行，公司环境外加了一台windows节点跑脚本。
 
 *若遇网站需要翻墙，具体下载安装请自行百度。*
 
