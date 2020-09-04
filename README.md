@@ -13,6 +13,15 @@
 - tools	工具类	
 - conftest.py	常用目录等
 - pytest.ini	pytest配置文件	
+通过上图我们可以看出，通过POM模型思想，我们把：
+
+页面元素
+
+页面行为
+
+测试用例
+元素组成了页面行为，各种行为组合成了我们的测试用例。
+以上四种代码主体进行了拆分，虽然在用例很少的情况下做会增加代码，但是当用例多的时候意义很大，代码量会在用例增加的时候显著减少。我们维护代码变得更加直观明显，代码可读性也变得比工厂模式强很多，代码复用率也极大的得到了提高。
 
 #### 无聊的背景
   其实做测试最早接触的就是UI自动化，当时看着觉得很酷，页面自己会动。那个老师是这么说的，成熟的自动化工程师看着脚本跑就行了
@@ -195,25 +204,10 @@ call pytest -s -q --reruns=0 --alluredir allure-results --clean-alluredir
     至此，allure美化报告完成。
 
 
-### （六）. retrofit2.0--Http接口测试驱动原力
-> 其实Java的Http客户端有很多，例如HTTPClient、OKHttp、retrofit等。。。       
-> 为什么那么多Http客户端会选择retrofit？用一个图见证他的实力
-
-![如此多的星星可知](https://upload-images.jianshu.io/upload_images/1592745-4e75bc87d014a097.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-> 真正的原因
- **接口定义与实现分离** 
-retrofit2.0可将Http接口定义与请求实现分离；通过制定interface定义接口。    
-网上有很多关于retrofit2.0的教程，这里就不再班门弄斧了，度娘即可。参考：https://blog.csdn.net/carson_ho/article/details/73732076
-
-附上本项目方式。
-
-##### 6.1 具体Http Api的定义interface。新建ISearch interface。
-```
-public interface ISearch {
-    @GET("j/search_tags")
-    Call<MovieResponseVO> searchTags(@Query("type") String type, @Query("source") String source);
-}
+### （六）. selenium测试驱动原力
+> 做UI自动化的没的说，那肯定是selenium了，现在selenium的官方文档也更新过了
+现在连官方文档都开始推荐使用POM模式了，大家有兴趣的可以去看看https://www.selenium.dev/documentation/en/getting_started/
+首先我们要做肯定是对于selenium原方法的封装，主要是统一方法，方便调用，每个用例都继承这个基类
 ```
 
 ##### 6.2 HttpBase基础类提供原动力。
