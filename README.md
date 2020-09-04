@@ -56,285 +56,132 @@
 
 *若遇网站需要翻墙，具体下载安装请自行百度。*
 
-## 三、框架搭建
-### （一） 项目基础工程
-搭工程，建立基本工程框架，采用maven结构框架工程。  话不多说，先搭建工程。方式：
-##### 1.1 IDEA 上，File ->New ->Project -> maven. 选maven后，不选任何模板，直接Next。  
-![image.png](https://upload-images.jianshu.io/upload_images/1592745-cecb4b9d26f51ee5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-##### 1.2 填写对应项目信息后，next。  
-![image.png](https://upload-images.jianshu.io/upload_images/1592745-d7d63d3d9a86f7b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##### 1.3 继续填写 对应信息后，Finish。  
-![image.png](https://upload-images.jianshu.io/upload_images/1592745-a2b383a44993315a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-### （二）Maven pom.xml文件配置 与多环境切换
-##### 2.1 依赖配置
-需要使用到的依赖有testng、extentreports、retrofit、fastjson、okhttp等..
-
-     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.47</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>3.10.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/logging-interceptor  日志拦截器-->
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>logging-interceptor</artifactId>
-            <version>3.10.0</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.14.2</version>
-            <!--<scope>test</scope>-->
-            <!--作用范围，默认是test。验证部分被抽象，不仅test作用域需使用-->
-        </dependency>
-        
-        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
-        <dependency>
-            <groupId>com.aventstack</groupId>
-            <artifactId>extentreports</artifactId>
-            <version>3.1.5</version>
-            <scope>provided</scope>
-        </dependency>
+### (三) pytest配置部分
+##### 3.1. 在根目录下创建conftest
+后续因为在jenkins上运行所以邮件用jenkins来发，conftest只保留driver初始化，以及截图功能。
+ ```
+ @pytest.fixture(scope='session', autouse=True)
+def drivers(request):
+    global driver
+    if driver is None:
+        options = webdriver.ChromeOptions()
+        options.add_argument('--disable-infobars')
+        options.add_argument('--blink-settings=imagesEnabled=false')
+        driver = webdriver.Chrome(options=options)
+    inspect_element()
+    testclear()
     
-        <!-- https://mvnrepository.com/artifact/com.vimalselvam/testng-extentsreport -->
-        <dependency>
-            <groupId>com.vimalselvam</groupId>
-            <artifactId>testng-extentsreport</artifactId>
-            <version>1.3.1</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.squareup.retrofit2</groupId>
-            <artifactId>retrofit</artifactId>
-            <version>2.4.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson 对象转换器-->
-        <dependency>
-            <groupId>com.squareup.retrofit2</groupId>
-            <artifactId>converter-gson</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-    </dependencies>
 
-    
-##### 2.2 配置多环境切换部分
-  采用maven环境切换方式。
-- 2.2.1 先配置pom.xml文件的 build节点。
+    def fn():
+        driver.quit()
 
-     ```
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <!--扫描替换参数的文件路径-->
-            </resource>
-        </resources>
-        <filters>
-            <filter>src/main/filters/filter-${env}.properties</filter>
-            <!--环境过滤器的配置方式，回头需要在该路径下建立对应文件-->
-        </filters>
-        <plugins>
-            <plugin>
-                <!--该插件是解决命令下执行mvn test指定testng xxx.xml 文件 的配置-->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.0</version>
-                <configuration>
-                    <!--为了解决在jenkins maven执行test 报告乱码问题，编码格式设置为UTF-8-->
-                    <argLine>-Dfile.encoding=UTF-8</argLine>
-                    <encoding>UTF-8</encoding>
-                    <!--动态指定执行的xml文件。${project.basedir}项目目录，${xmlFileName}maven文件-->
-                    <suiteXmlFiles>
-                        <suiteXmlFile>${project.basedir}/target/classes/testNg/${xmlFileName}</suiteXmlFile>
-                    </suiteXmlFiles>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-     ```
-        
-- 2.2.2 在pom.xml文件配置properties为了maven打包编译时后台一直输出警告信息。导致构建失败。
-    ```
-        <!--为了maven打包编译时后台一直输出警告信息。导致构建失败-->
-        <properties>
-            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-            <xmlFileName></xmlFileName>
-        </properties>
-    ```
-        
-- 2.2.3 在pom.xml文件配置Properties环境。多环境配置参数切换。
-    ```
-        <profiles>
-            <!-- 开发环境，默认激活 -->
-            <profile>
-                <id>dev</id>
-                <properties>
-                    <env>dev</env>
-                </properties>
-            </profile>
-    
-            <!-- 生产环境 -->
-            <profile>
-                <id>product</id>
-                <properties>
-                    <env>product</env>
-                </properties>
-            </profile>
-    
-            <!-- 测试环境 -->
-            <profile>
-                <id>debug</id>
-                <properties>
-                    <env>debug</env>
-                </properties>
-                <activation>
-                    <activeByDefault>true</activeByDefault><!--默认启用的是dev环境配置-->
-                </activation>
-            </profile>
-        </profiles>
-    ```   
-        
-##### 2.3 配置环境切换-文件部分
-- 2.3.1 在src/resource下创建env.properties文件。   
-    该文件记录的信息是跟环境切换相关的参数。    
-    如：接口请求不同环境的host，mongodb、mysql数据库等，因不同环境的信息。    
-    例如：
-    ```
-        api.post.host=${api.post.host}
-    ``` 
-- 2.3.2 创建src/main/filters/下创建     
-    filter-debug.properties、filter-dev.properties、filter-product.properties   
-    用于环境信息记录。
-    详细信息，如：
-    ```
-        api.post.host=http://apidebug.xxx.com:80/
-    ```
-如图：
+    request.addfinalizer(fn)
+    return driver
 
-  ![image.png](https://upload-images.jianshu.io/upload_images/1592745-2b03ef30d695a899.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-### (三) testNg配置部分
-##### 3.1. 在src/resources/下创建testNg目录.
-src/resources/testNg 目录是存放测试集合的目录，可根据测试模块创建对应模块文件夹。
-
+def _capture_screenshot():
+    '''
+    截图保存为base64
+    '''
+    now_time = datetime_strftime("%Y%m%d%H%M%S")
+    if not os.path.exists(SCREENSHOT_DIR):
+        os.makedirs(SCREENSHOT_DIR)
+    screen_path = os.path.join(SCREENSHOT_DIR, "{}.png".format(now_time))
+    driver.save_screenshot(screen_path)
+    allure.attach.file(screen_path, "测试失败截图...{}".format(
+        now_time), allure.attachment_type.PNG)
+    with open(screen_path, 'rb') as f:
+        imagebase64 = base64.b64encode(f.read())
+    return imagebase64.decode()
+  ```
 ###### 3.1.1 每个文件夹可以是独立模块，每个模块下可以有模块的测试集合。
-- 例如，在src/resources/testNg/下创建测试集合：api/search/search-TestSuite.xml。配置如下：
+- 例如，在testcase下创建测试集合：使用pytest.mark 标记用例集合。配置如下：
     ```
-  <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  @allure.feature("jzyx-基本流程")
+# @pytest.mark.flaky(reruns=2, reruns_delay=5)
+class TestCreatpl:
 
-  <suite name="search_tags-搜索分类-电影首页测试集合" verbose="1" preserve-order="true">
-      <parameter name="report.config" value="src/main/resources/config/report/extent-config.xml"/>
-      <parameter name="system.info" value="reporter.config.MySystemInfo"/>
+    @pytest.fixture(scope='function', autouse=True)
+    def create(self, drivers):
+        Create = Createpl(drivers)
+        Create.get_url(ini.url)
+        Create.login()
 
-      <test name="0100.搜索分类-电影首页-正常场景" preserve-order="true">
-        <classes>
-            <class name="com.jxq.douban.SearchTagsTest">
-                <methods>
-                    <include name="testcase1"/>
-                </methods>
-            </class>
-        </classes>
-      </test>
 
-      <test name="0100.搜索分类-TV首页-正常场景" preserve-order="true">
-        <classes>
-            <class name="com.jxq.douban.SearchTagsTest">
-                <methods>
-                    <include name="testcase2"/>
-                </methods>
-            </class>
-        </classes>
-      </test>
+    # @pytest.mark.skip(reason="no way of currently testing this")
+    # @pytest.mark.run(order=1)
+    @pytest.mark.zjyx
+    @allure.story("创建计划-输入内容-提交计划")
+    def test_cp(self, drivers):
+        """点击营销
+            创建计划
+            选择人群包-输入计划内容"""
+        Create = Createpl(drivers)
+        Create.clickprecision()
+        Create.Selectcrowd()
+        Create.Fillplan()
 
-      <listeners>
-        <listener class-name="reporter.Listener.MyExtentTestNgFormatter"/>
-      </listeners>
-  </suite>
+    # @pytest.mark.skip(reason="no way of currently testing this")
+    @pytest.mark.jzyx
+    @allure.story("创建人群包-创建")
+    def test_cr(self, drivers):
+        uploading = upload(drivers)
+        uploading.up()
+    @pytest.mark.jzyx
+    @allure.story("创建人群包-搜索")
+    def test_sr(self, drivers):
+        uploading = upload(drivers)
+        uploading.search_r()
     ```
-
-###### 3.1.2.为了能够让所有接口统一运行测试，需建立一个所有的测试集合，测试集合一般放在src/resources/testNg 目录下。     
-型如：
-  ```
-    <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
-    <suite name="接口测试集合" verbose="1" preserve-order="true">
-      <parameter name="report.config" value="src/main/resources/config/report/extent-config.xml"/>
-      <parameter name="system.info" value="reporter.config.MySystemInfo"/>
-
-      <suite-files>
-        <suite-file path="search/SearchTags-TestSuite.xml"/>
-      </suite-files>
-
-      <listeners>
-          <listener class-name="reporter.Listener.MyExtentTestNgFormatter"/>
-      </listeners>
-      </suite>
-  ```
 
 ###### 3.1.3 说明
-- 有同学会问：为什么会有这么多inclde name？     
-原因是：test里的name是针对一整个testclass的名称，为了让每一个测试名称都能够展示。
-故此把层级调整了。调整后的层级对应如下：
+- 目前的用例我是用项目来区别的，当然项目庞大的话你也可以用模块来区分，怎么区分也是一个学问，合适就行
+ 但是要符合用例的独立性，减少用例间的依赖。
 
- | testng层级| 接口映射关系 | 
-  | ------------- |:-------------:| 
-  | test | 接口具体的testcase |
-  | suite | 具体接口所有用例集合 |
-  | 总suite | 所有接口测试集合 | 
-
-*需要说明的是，在testng接口层级管理上，每个项目可以有各自的方式，只要符合你的是好的。*
-
--  这里添加了parameter、listener，是用于替换testng默认报告，使用ExtentReported。关于ExtentReported后面会有说明。
+-  这里添加了markers，用于单独调用某一类用例，方便调式。
 ```
-    <parameter name="report.config" value="src/main/resources/config/report/extent-config.xml"/>
-    <parameter name="system.info" value="reporter.config.MySystemInfo"/>
-    
-    <listeners>
-        <listener class-name="reporter.Listener.MyExtentTestNgFormatter"/>
-    </listeners>
+ [pytest]
+markers =
+jzyx
+bd
 ```
 
 ### （四） TestCase测试用例
 ##### 4.1 Test用例类
-- 首先，满足maven工程结构在src/test目录下建立对应的测试用例类。
-- 其次，测试用例类的命名也满足maven在单元测试时的规范。类名以Test结尾.```如：SearchTagsTest.java```
-- 最后，根据各模块分类建立对应模块包。
+- 首先，满足pytest工程结构在类名以Test_开头.```如：Test_ayx.java```
+- 其次，用feature标记整体流程，fixture开始流程。
+ ```
+  
+    @pytest.fixture(scope='function', autouse=True)
+    def create(self, drivers):
+        bd = bd_test(drivers)
+        bd.get_url(ini.bdurl)
+        bd.login()
 
+    # @pytest.mark.skip(reason="no way of currently testing this")
+    @pytest.mark.bd
+    @allure.story("创建人群包-搜索")
+    def test_cw(self, drivers):
+        bd = bd_test(drivers)
+        bd.createcw()
+ ```
 ##### 4.2 测试用例怎么写？
-其实网上有很多关于TestNg的文章，这边就不做过多介绍了。
-> 官网：https://testng.org/doc/index.html       
-> 也可查阅：https://www.yiibai.com/testng/
+- 目前的用例我是用项目来区别的，当然项目庞大的话你也可以用模块来区分，怎么区分也是一个学问，合适就行
+ 但是要符合用例的独立性，减少用例间的依赖。用例的话尽量封装一些会重复使用的流程，流程也不要定的过长。
 
-*写接口用例，不在与形式，形式网上很多。
-最重要的是编写的层次与心得。回头有空再整理下。*
+-  这里添加了markers，用于单独调用某一类用例，方便调式。
+```
+ [pytest]
+markers =
+jzyx
+bd
+```
 
-### （五） extentreports报告
-> extentreports是什么？网上有很多关于使用extentreports替代TestNg自带报告。原因是什么？
+### （五） allure报告
+> allure是什么？网上有很多关于使用allure替代pytest自带报告。原因是什么？
 > 漂亮。先上张图。
 
-![](https://upload-images.jianshu.io/upload_images/1592745-caffacaa53a55671.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://docs.qameta.io/allure/images/get_started_report_overview.png)
 官网很重要：http://extentreports.com/. 其实官网已经给了很多demo了，这里我根据自己的经验进行了配置。
 
 testNg原有报告有点丑，信息整理有点乱。ExtentReports是用于替换testNg原有的报告。也可以使用ReportNg，个人偏好ExtentReports样式。
