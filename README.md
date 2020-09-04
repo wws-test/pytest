@@ -98,7 +98,7 @@ def _capture_screenshot():
 - 例如，在testcase下创建测试集合：使用pytest.mark 标记用例集合。配置如下：
     ```
   @allure.feature("jzyx-基本流程")
-# @pytest.mark.flaky(reruns=2, reruns_delay=5)
+@pytest.mark.flaky(reruns=2, reruns_delay=5)
 class TestCreatpl:
 
     @pytest.fixture(scope='function', autouse=True)
@@ -182,212 +182,17 @@ bd
 > 漂亮。先上张图。
 
 ![](https://docs.qameta.io/allure/images/get_started_report_overview.png)
-官网很重要：http://extentreports.com/. 其实官网已经给了很多demo了，这里我根据自己的经验进行了配置。
+官网很重要：https://docs.qameta.io/allure/. 其实官网已经给了很多demo了，这里我根据自己的经验进行了配置。
 
-testNg原有报告有点丑，信息整理有点乱。ExtentReports是用于替换testNg原有的报告。也可以使用ReportNg，个人偏好ExtentReports样式。
-
-##### 5.1 强制重写ExtentTestNgFormatter类
-强制重写EExtentTestNgFormatter类主要是以下两点原因：
-①、为了能够在报告中展示更多状态类型的测试结果，例如：成功、失败、警告、跳过等测试状态结果。
-②、因为不支持cdn.rawgit.com访问，故替css访问方式。
-
-方式如下：下载ExtentReportes源码，找到ExtentTestNgFormatter类。
-- 5.1.1 在创建类：src/main/java/reporter/listener路径下MyExtentTestNgFormatter.java类。
- MyExtentTestNgFormatter直接从ExtentTestNgFormatter继承。
-  ```
-  public class MyExtentTestNgFormatter extends ExtentTestNgFormatter {
-  ```
-- 5.1.2 构造方法加入```htmlReporter.config().setResourceCDN(ResourceCDN.EXTENTREPORTS);```
-MyExtentTestNgFormatter 类，代码如下：
-  ```
-    public MyExtentTestNgFormatter() {
-        setInstance(this);
-        testRunnerOutput = new ArrayList<>();
-        String reportPathStr = System.getProperty("reportPath");
-        File reportPath;
-
-        try {
-            reportPath = new File(reportPathStr);
-        } catch (NullPointerException e) {
-            reportPath = new File(TestNG.DEFAULT_OUTPUTDIR);
-        }
-
-        if (!reportPath.exists()) {
-            if (!reportPath.mkdirs()) {
-                throw new RuntimeException("Failed to create output run directory");
-            }
-        }
-
-        File reportFile = new File(reportPath, "report.html");
-        File emailReportFile = new File(reportPath, "emailable-report.html");
-
-        htmlReporter = new ExtentHtmlReporter(reportFile);
-        EmailReporter emailReporter = new EmailReporter(emailReportFile);
-        reporter = new ExtentReports();
-        //        如果cdn.rawgit.com访问不了，可以设置为：ResourceCDN.EXTENTREPORTS或者ResourceCDN.GITHUB
-        htmlReporter.config().setResourceCDN(ResourceCDN.EXTENTREPORTS);
-        reporter.attachReporter(htmlReporter, emailReporter);
-    }
-  ```
-
-- 5.1.3 接着在onstart方法重写功能。
-    用了很粗暴的方式，新建了一个类名为MyReporter，一个静态ExtentTest的引用。
-  - ①  reporter.Listener包下MyReporter.java
-    ```
-        public class MyReporter {
-            public static ExtentTest report;
-        }
-    ```
-
-  - ② MyExtentTestNgFormatter.java
-    ```
-        public void onStart(ITestContext iTestContext) {
-            ISuite iSuite = iTestContext.getSuite();
-            ExtentTest suite = (ExtentTest) iSuite.getAttribute(SUITE_ATTR);
-            ExtentTest testContext = suite.createNode(iTestContext.getName());
-            // 将MyReporter.report静态引用赋值为testContext。
-            // testContext是@Test每个测试用例时需要的。report.log可以跟随具体的测试用例。另请查阅源码。
-            MyReporter.report = testContext;
-            iTestContext.setAttribute("testContext", testContext);
-        }
-    ```
-
-- 5.1.4 顺带提一句，测试报告默认是在工程根目录下创建test-output/文件夹下，名为report.html、emailable-report.html。可根据各自需求在构造方法中修改。
-    ```
-        public MyExtentTestNgFormatter() {
-            setInstance(this);
-            testRunnerOutput = new ArrayList<>();
-            // reportPath报告路径
-            String reportPathStr = System.getProperty("reportPath");
-            File reportPath;
-    
-            try {
-                reportPath = new File(reportPathStr);
-            } catch (NullPointerException e) {
-                reportPath = new File(TestNG.DEFAULT_OUTPUTDIR);
-            }
-    
-            if (!reportPath.exists()) {
-                if (!reportPath.mkdirs()) {
-                    throw new RuntimeException("Failed to create output run directory");
-                }
-            }
-            // 报告名report.html
-            File reportFile = new File(reportPath, "report.html");
-            // 邮件报告名emailable-report.html
-            File emailReportFile = new File(reportPath, "emailable-report.html");
-    
-            htmlReporter = new ExtentHtmlReporter(reportFile);
-            EmailReporter emailReporter = new EmailReporter(emailReportFile);
-            reporter = new ExtentReports();
-            reporter.attachReporter(htmlReporter, emailReporter);
-        }
-    ```
-- 5.1.5 顺带再提一句，report.log 可以有多种玩法。
-    ```
-    // 根据状态不同添加报告。型如警告
-    MyReporter.report.log(Status.WARNING, "接口耗时(ms)：" + String.valueOf(time));
-    ```
-  *直接从TestClass中运行时会报MyReporter.report的空指针错误，需做个判空即可。*
-
-##### 5.2 导入MyExtentTestNgFormatter监听类
-在测试集合.xml文件中导入Listener监听类。
+pytest原有报告有点丑，信息整理有点乱。allure是用于替换pytest原有的报告。
+##### 5.1 如何使用allure
+跟pytest差不多，都是约定大于规则。在我的测试用例标记上的fearture/story.allure
+会自动收集这些信息并生产报告。
 ```
-<listeners>
-        <listener class-name="reporter.Listener.MyExtentTestNgFormatter"/>
-</listeners>
+call pytest -s -q --reruns=0 --alluredir allure-results --clean-alluredir
 ```
-
-##### 5.3 配置报告信息
-extent reporters支持报告的配置。目前支持的配置内容有title、主题等。
-
-- 先在src/resources/目录下添加 config/report/extent-config.xml。    
-
-    - 配置内容
-    ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <extentreports>
-        <configuration>
-            <timeStampFormat>yyyy-MM-dd HH:mm:ss</timeStampFormat>
-            <!-- report theme -->
-            <!-- standard, dark 个人喜好暗色 -->
-            <theme>dark</theme>
-    
-            <!-- document encoding -->
-            <!-- defaults to UTF-8 -->
-            <encoding>UTF-8</encoding>
-    
-            <!-- protocol for script and stylesheets -->
-            <!-- defaults to https -->
-            <protocol>https</protocol>
-    
-            <!-- title of the document -->
-            <documentTitle>QA-接口自动化测试报告</documentTitle>
-    
-            <!-- report name - displayed at top-nav -->
-            <reportName>QA-接口自动化测试报告</reportName>
-    
-            <!-- report headline - displayed at top-nav, after reportHeadline -->
-            <reportHeadline>接口自动化测试报告</reportHeadline>
-    
-            <!-- global date format override -->
-            <!-- defaults to yyyy-MM-dd -->
-            <dateFormat>yyyy-MM-dd</dateFormat>
-    
-            <!-- global time format override -->
-            <!-- defaults to HH:mm:ss -->
-            <timeFormat>HH:mm:ss</timeFormat>
-    
-            <!-- custom javascript -->
-            <scripts>
-                <![CDATA[
-            $(document).ready(function() {
-    
-            });
-          ]]>
-            </scripts>
-    
-            <!-- custom styles -->
-            <styles>
-                <![CDATA[
-    
-          ]]>
-            </styles>
-        </configuration>
-    </extentreports>
-    ```
-##### 5.4 添加系统信息
-不多说，上图。
-    ![](https://upload-images.jianshu.io/upload_images/1592745-db9bbb5ef50eb56b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-    可用于添加系统信息，例如：db的配置信息，人员信息，环境信息等。根据项目实际情况添加。
-
-- 在src/main/java/reporter/config目录下创建MySystemInfo.java类，继承SystemInfo接口。
-    ```
-    public class MySystemInfo implements SystemInfo {
-        @Override
-        public Map<String, String> getSystemInfo() {
-            InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("env.properties");
-            Properties properties = new Properties();
-            Map<String, String> systemInfo = new HashMap<>();
-            try {
-                properties.load(inputStream);
-                systemInfo.put("environment", properties.getProperty("Environment"));
-                systemInfo.put("sqlURL", properties.getProperty("ESsql.URL"));
-                systemInfo.put("redisHost", properties.getProperty("redis.host"));
-                systemInfo.put("redisPort", properties.getProperty("redis.port"));
-                systemInfo.put("mongodbHost", properties.getProperty("mongodb.host"));
-                systemInfo.put("mongodbPort", properties.getProperty("mongodb.port"));
-                systemInfo.put("测试人员", "jxq");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return systemInfo;
-        }
-    }
-    ```
-
-    至此，extentreports美化报告完成。
+只需要输入生产报告命令，忘了说它跟pytest命令集成的非常好。后续的与jenkins集成具体可以参考网上的资料，非常多。
+    至此，allure美化报告完成。
 
 
 ### （六）. retrofit2.0--Http接口测试驱动原力
