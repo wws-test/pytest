@@ -5,7 +5,6 @@ from config.conf import LOCATE_MODE
 from tools.time import sleep
 from tools.logger import log
 from selenium.webdriver.support.ui import Select
-from common.readelement import Element
 from common.upload_file import upload
 
 

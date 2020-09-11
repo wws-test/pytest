@@ -26,6 +26,7 @@ class bd_test(Page):
         sleep(1)
 
 
+
     def check(self):
         self.isclick(search['审核'])
         self.isclick(search['通过'])

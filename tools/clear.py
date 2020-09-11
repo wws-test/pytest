@@ -16,4 +16,4 @@ def testclear():
 os.chdir(BASE_DIR)  # 切换到项目根目录
 
 if __name__ == '__main__':
-    clear()
+   testclear()

@@ -13,6 +13,7 @@ name = fake.name()
 
 @allure.feature("bd-后台审核")
 # @pytest.mark.flaky(reruns=2, reruns_delay=5)
+@pytest.mark.bd
 class TestCreatpl:
 
     @pytest.fixture(scope='function', autouse=True)
@@ -22,15 +23,16 @@ class TestCreatpl:
         bd.login()
 
     # @pytest.mark.skip(reason="no way of currently testing this")
-    @pytest.mark.bd
+
     @allure.story("创建人群包-搜索")
+    @pytest.mark.run(order=4)
     def test_cw(self, drivers):
         bd = bd_test(drivers)
         bd.createcw()
 
     # @pytest.mark.dependency(depends=["cart"], scope="session")
-    @pytest.mark.bd
     @allure.story("审核-任务")
+    @pytest.mark.run(order=5)
     def test_ch(self, drivers):
         bd = bd_test(drivers)
         bd.check()

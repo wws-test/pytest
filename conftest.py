@@ -20,12 +20,11 @@ def drivers(request):
     global driver
     if driver is None:
         options = webdriver.ChromeOptions()
-        options.add_argument('--disable-infobars')
+        options.add_argument('--disable-desktop-notifications')
         options.add_argument('--blink-settings=imagesEnabled=false')
         driver = webdriver.Chrome(options=options)
     inspect_element()
     testclear()
-    
 
     def fn():
         driver.quit()
@@ -127,3 +126,8 @@ def _capture_screenshot():
     with open(screen_path, 'rb') as f:
         imagebase64 = base64.b64encode(f.read())
     return imagebase64.decode()
+
+
+def pytest_configure(config):
+    config.addinivalue_line("markers", "jz:精准营销")
+    config.addinivalue_line("markers", "bd:后台")

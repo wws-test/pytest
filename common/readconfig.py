@@ -41,26 +41,31 @@ class ReadConfig:
     @property
     def bdurl(self):
         return self._get(HOST, BD)
+
     @property
     def peurl(self):
         return self._get(HOST, HOSS)
 
-
     @property
     def account(self):
         return self._get(USER, USER)
+
     @property
     def passwd(self):
         return self._get(USER, PASSWD)
+
     @property
     def peaccount(self):
         return self._get(USER, PEUSER)
+
     @property
     def pepasswd(self):
         return self._get(USER, PEPASSWD)
+
     @property
     def bdaccount(self):
         return self._get(USER, BDUSER)
+
     @property
     def bdpasswd(self):
         return self._get(USER, BDPASSWD)

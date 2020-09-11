@@ -7,13 +7,15 @@ from common.readelement import Element
 from common import readconfig
 from faker import Faker
 
+from tools.logger import Log
+
 fake = Faker(locale='zh_CN')
 name = fake.company()
 ad=fake.address()
 post=fake.postcode()
 url=fake.url()
 search = Element('search')
-
+log = Log().logger
 
 class Createpl(Page):
     """创建计划"""
@@ -55,6 +57,12 @@ class Createpl(Page):
         self.isclick(search['置入动态短链'])
         self.send_key(search['短链'],url)
         self.isclick(search['提交'])
+        sleep(1)
+    def get_result(self):
+        a=self.get_text(search['待审核'])
+        return a
+        log.info("待审核=：{}".format(a))
+
 
     def alreadyplan(self):
         self.focus(search['提交'])
