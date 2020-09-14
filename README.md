@@ -311,47 +311,28 @@ call pytest -s -q --reruns=0 --alluredir allure-results --clean-alluredir
 #### （六） 参数化构建过程 配置
   - 6.1添加参数 选择是 【选项参数】。
     ![](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914163240842-1308016030.png)
+    参数化
     ![](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914163418508-2036618630.png)
+    将变量写入命令行
+     ![](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914163328205-886974637.png)
     
-
-  - 6.2完整配置信息如下图。
-        ![](https://upload-images.jianshu.io/upload_images/1592745-f586ae3356c5dd3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-        
-  - 6.3参数名称xmlFileName，对应maven构建中的-DxmlFileName=%xmlFileName%，再对应pom.xml中的```<suiteXmlFile>${project.basedir}/target/classes/testNg/${xmlFileName}</suiteXmlFile>```
-    加入需要运行的集合选项。
-  - 6.4 同样，env对应maven构建中的 -P%env% ，再对应pom.xml中的build信息。
-    加入运行的环境选项。
 
 #### （七） 源码管理配置
 这个配置网上有很多详细文档，这里不重复。具体度娘查看。
     ![image.png](https://upload-images.jianshu.io/upload_images/1592745-f6d102928da390fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #### （八） 构建触发器
-    > 这个配置可根据实际项目需求配置。个人建议: 接口自动化测试中的自动化最核心的是结合持续构建。   
-    > 所以建议配置“其他工程构建后触发”，填入所需测试的服务端项目名称即可。当然要在一个Jenkins中。
-  ![image.png](https://upload-images.jianshu.io/upload_images/1592745-5c69a2115ce3327c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-### （九） 构建信息配置    
-    > 上面已经配置了“调用顶层Maven目标”，然后还需要配置Groovy script。  
-    > 配置Groovy script的目的是让Http Reported插件css能用，同时不用担心jenkins重启。
-
-- 配置Groovy script前保障Groovy 插件已经安装。
-- 增加构建步骤“Execute system Groovy script” ，选择Groovy command，填入```System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")```
-    
-    ![](https://upload-images.jianshu.io/upload_images/1592745-9a3742f57a4ed0d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+    > 这个配置可根据实际项目需求配置。个人建议: 自动化测试中的自动化最核心的是结合持续构建。   
+    > 所以建议配置“代码提交时构建”，也可以填入所需测试的服务端项目构建后构建。当然要在一个Jenkins中。
+  ![image.png](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914163318399-692905750.png)
 
 ### （十） 构建后操作信息配置
-##### 9.1. publish html reports
-    加入publish html reports步骤。
-    - HTML directory to archive： 报告路径。 填写extentreports默认输出路径：test-output\
-    - Index page[s] ： 报告索引名称。填写extentreports默认报告名称：report.html
-    - Keep past HTML reports： 保留报告，勾选！不多说。
-![](https://upload-images.jianshu.io/upload_images/1592745-9143ff5424476c8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+##### 9.1. allure html reports
+![](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914163344378-596730886.png)
 
 #####  9.2 publish html reports
-    publish testng results 配置。默认**/testng-results.xml 即可。 
-    为什么要testng默认报告？ 因为需要统计分析时查看。 当然这个是可选的。
-   ![image.png](https://upload-images.jianshu.io/upload_images/1592745-9625b6b2ec2e35df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+    通过jenkins发邮件通知结果。 
+   ![image.png](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914164139013-296597951.png)
 
 #####  9.3. 钉钉通知器配置
     怎么玩转钉钉消息？查看https://blog.csdn.net/workdsz/article/details/77531802
