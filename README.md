@@ -143,17 +143,7 @@ class TestCreatpl:
         uploading.search_r()
     ```
 
-###### 3.1.3 说明
-- 目前的用例我是用项目来区别的，当然项目庞大的话你也可以用模块来区分，怎么区分也是一个学问，合适就行
- 但是要符合用例的独立性，减少用例间的依赖。
 
--  这里添加了markers，用于单独调用某一类用例，方便调式。
-```
- [pytest]
-markers =
-jzyx
-bd
-```
 
 ### （四） TestCase测试用例
 ##### 4.1 Test用例类
@@ -185,6 +175,60 @@ markers =
 jzyx
 bd
 ```
+###### 4.3 说明
+- 我这边分离页面元素是用yaml来保存页面元素，中文是用来说明元素的名称，里面还包含了定位器以及元素本身。
+```
+用户名: "id==username"
+密码: "id==password"
+登录: "xpath==//input[@class='logininfo_submit']"
+```
+用了一个readelement的方法来读取我的页面元素
+```
+ def __init__(self, name):
+        self.file_name = '%s.yaml' % name
+        self.element_path = os.path.join(ELEMENT_PATH, self.file_name)
+        if not os.path.exists(self.element_path):
+            raise FileNotFoundError("%s 文件不存在！" % self.element_path)
+        with open(self.element_path, encoding='utf-8') as f:
+            self.data = yaml.safe_load(f)
+
+    def __getitem__(self, item):
+        """获取属性"""
+        data = self.data.get(item)
+        if data:
+            name, value = data.split('==')
+            return name, value
+        raise ArithmeticError("{}中不存在关键字：{}".format(self.file_name, item))
+ ```
+ 这样的话，我们在调用元素的时候，就可以写成这样
+  ```
+  self.send_key(search['用户名'], ini.bdaccount)
+  self.send_key(search['密码'], ini.bdpasswd)
+  --------------------------------------------
+  public WebElement getLink_PersonName(){
+		String xpath = "//div[@class='person-name']/span"; 
+		return getElment(By.xpath(xpath));
+  
+  public void input_Password(){
+		driver.sendKeysEvent(orderPayPage.getLink_PersonName(), pageName, "输入储值卡支付密码", "123456");
+	}
+	}
+  ```
+  
+  self调用basepage的方法，再放入locator，中文字符又可以当解释，又成为了一种参数，一举两得，这边我们可以看下以前的java方法对下，就可以清晰认知到这样封装以后
+  哪怕以后回过头来看，都可以马上捡回来。不得不说python这样写起来真是快啊。
+  关于断言这块就不多写了，我目前断言做的比较少，可能是业务的关系吧，放一段断言示例吧
+    ```
+        def get_result(self):
+        a=self.get_text(search['待审核'])
+        return a
+        log.info("待审核=：{}".format(a))
+        ------------------------------------
+     result = Create.get_result()
+        log.info("结果".format(result))
+        assert  result== "提交成功，等待审核..."
+      ```
+  
 
 ### （五） allure报告
 > allure是什么？网上有很多关于使用allure替代pytest自带报告。原因是什么？
@@ -209,202 +253,57 @@ call pytest -s -q --reruns=0 --alluredir allure-results --clean-alluredir
 现在连官方文档都开始推荐使用POM模式了，大家有兴趣的可以去看看https://www.selenium.dev/documentation/en/getting_started/
 首先我们要做肯定是对于selenium原方法的封装，主要是统一方法，方便调用，每个用例都继承这个基类
 ```
+@staticmethod
+    def element_locator(func, locator):
+        """元素定位器"""
+        name, value = locator
+        return func(LOCATE_MODE[name], value)
 
-##### 6.2 HttpBase基础类提供原动力。
-HttpBase类中提供了Retrofit基础。
-同时，我考虑到了日常控制台和测试报告上都需要看到对应请求信息，故此在HttpClient中默认加入了日志拦截器；日志拦截器的实现方法里，用Reportes.log记录到日志中。
-并且，考虑到实际项目中每个Http请求都会有对应类似RequestHeader、RequestBody的加密签名等，预留了拦截器。
-可在HttpBase构造方法时传入对应拦截器。
-对应的拦截器可以通过实现接口Interceptor，做对应项目需求操作。
-先看代码。
-```
-public class HttpBase {
-    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-    private Retrofit retrofit;
-    private String host;
+    def find_element(self, locator):
+        """寻找单个元素"""
+        return Page.element_locator(lambda *args: self.wait.until(
+            EC.presence_of_element_located(args)), locator)
 
-    /**
-     * 构造方法（1个参数）
-     * 只传Host，默认没有使用拦截器。
-     *
-     * @param host 访问域名host
-     */
-    public HttpBase(String host) {
-        init(host, null);
-    }
+    def find_elements(self, locator):
+        """查找多个相同的元素"""
+        return Page.element_locator(lambda *args: self.wait.until(
+            EC.presence_of_all_elements_located(args)), locator)
 
-    /**
-     * 构造方法（2个参数）
-     * 只传Host，默认使用日志拦截器。
-     *
-     * @param host        访问域名host
-     * @param interceptor 自定义拦截器
-     */
-    public HttpBase(String host, Interceptor interceptor) {
-        init(host, interceptor);
-    }
+    def elements_num(self, locator):
+        """获取相同元素的个数"""
+        number = len(self.find_elements(locator))
+        log.info("相同元素：{}".format((locator, number)))
+        return number
 
-    /**
-     * 初始化方法
-     *
-     * @param host        访问域名host
-     * @param interceptor 自定义拦截器
-     */
-    private void init(String host, Interceptor interceptor) {
-        OkHttpClient.Builder client = getHttpClient(interceptor);
-        retrofit = new Retrofit.Builder()
-                .baseUrl(host)
-                .client(client.build())
-                .addConverterFactory(RespVoConverterFactory.create())
-                .build();
-    }
+    def isclick(self, locator):
+        """点击"""
+        """点击"""
+        self.find_element(locator).click()
+        sleep()
+        log.info("点击元素：{}".format(locator))
 
-    /**
-     * 获取HttpClient.Builder 方法。
-     * 默认添加了，基础日志拦截器
-     *
-     * @param interceptor 拦截器
-     * @return HttpClient.Builder对象
-     */
-    private OkHttpClient.Builder getHttpClient(Interceptor interceptor) {
-        HttpLoggingInterceptor logging = getHttpLoggingInterceptor();
-        OkHttpClient.Builder builder = new OkHttpClient.Builder()
-                .connectTimeout(10, TimeUnit.SECONDS)
-                .retryOnConnectionFailure(true);
-        if (interceptor != null) {
-            builder.addInterceptor(interceptor);
-        }
-        builder.addInterceptor(logging);
-        return builder;
-    }
+    def on_page(self, pagetitle):
+        return pagetitle in self.driver.title
 
-    /**
-     * 日志拦截器
-     *
-     * @return
-     */
-    private HttpLoggingInterceptor getHttpLoggingInterceptor() {
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-            @Override
-            public void log(String message) {
-                Reporter.log("RetrofitLog--> " + message, true);
-            }
-        });
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);//Level中还有其他等级. 设置打印内容级别到Body。
-        return logging;
-    }
+    def get_url(self, base_url):
+        """打开网址并验证"""
+        self.driver.set_window_size(1600,900)
+        log.info("设置页面大小")
+        self.driver.set_page_load_timeout(60)
+        try:
+            self.driver.get(base_url)
+            self.driver.implicitly_wait(10)
+            log.info("打开网页：%s" % base_url)
+        except TimeoutException:
+            raise TimeoutException("打开%s超时请检查网络或网址服务器" % base_url)
+ ```
 
-    /**
-     * retrofit构建方法
-     *
-     * @param clazz 泛型类
-     * @param <T>   泛型类
-     * @return 泛型类
-     */
-    public <T> T create(Class<T> clazz) {
-        return retrofit.create(clazz);
-    }
-
-    public String getHost() {
-        return host;
-    }
-
-    public void setHost(String host) {
-        this.host = host;
-    }
-}
-```
-
-
-##### 6.3 集成HttpBase的Http Api接口请求方法类
-这里需要说明下，为什么需要有这个类的存在？
-其实在Retrofit已经可以用4行的代码实现Http请求了，如下：
-```
-        HttpBase httpBase = new HttpBase(host);
-        ISearch iSearch = httpBase.create(ISearch.class);
-        Call<MovieResponseVO> call = iSearch.searchTags(type, source);
-        Response<MovieResponseVO> response = call.execute();
-```
-看了上面的4行代码，每次都需要写也是挺麻烦的。
-所以抽出来，让编写测试用例验证更简洁点。
-抽取后的代码如下：
-```
-public class HttpSearch extends HttpBase {
-    private ISearch iSearch;
-
-    public HttpSearch(String host) {
-        super(host);
-        iSearch = super.create(ISearch.class);
-    }
-
-    public Response<MovieResponseVO> searchTags(String type, String source) throws IOException {
-        Call<MovieResponseVO> call = iSearch.searchTags(type, source);
-        return call.execute();
-    }
-
-//    同模块下，新增的接口可添加到这里。
-//    public Response<MovieResponseVO> searchTags(String type, String source) throws IOException {
-//        Call<MovieResponseVO> call = iSearch.searchTags(type, source);
-//        return call.execute();
-//    }
-}
-```
-
-##### 6.4 使用aerrt验证基础响应体
 
 
 
 ### 四、Jenkins部分配置
 > Jenkins的安装上面已有说明，这里不重复。
 
-#### （一） Jenkins插件
-##### 1.插件列表
-需要使用到的插件有：
-- Maven Integration plugin
-- HTML Publisher plugin
-- Dingding[钉钉] Plugin
-- TestNG Results
-- Groovy
-- Parameterized Trigger Plugin
-
-##### 2. Jenkins插件安装
-怎么安装插件？
-Jenkins-》系统管理-》插件管理-》搜索插件-》安装即可
-
- ![](https://upload-images.jianshu.io/upload_images/1592745-c726c78951c2ccd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-##### 3. 插件说明
-  -  Maven Integration plugin -必备！
-Maven构建插件，使用简单方便。 
-
-- HTML Publisher plugin -必备！
-extentreporets美化报告替换testng就是为了好看，但要在jenkins中展示必须安装此插件。
-
--  Groovy -必备！
-Jenkins不支持异类样式CSS，所以Groovy插件是为了解决HTML Publisher plugin在展示extentreporets时能够正确美丽的作用。
-
-- Dingding[钉钉] Plugin -必备！
-测试用例构建结果的通知。网上很多说用邮件，说实话使用场景最频繁高效的应该是IM靠谱。这个插件就是解决测试结果的通知。
-
-- TestNG Results - 非必备
-TestNg测试结果收集，统计运行结果数据。
-
-- Parameterized Trigger Pl ugin - 非必备
-依赖构建传参插件。http://note.youdao.com/noteshare?id=c56333317d3078b36b2479fdf8fe68d7&sub=wcp1530172849180570
-
-#### （二）Jenkins新建任务配置
-在插件安装完后，开始任务的新建配置。
-- 新建一个maven项目。
-    ![image.png](https://upload-images.jianshu.io/upload_images/1592745-9d512595d8e7b610.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-#### （三）General配置
-- 丢弃旧的构建配置 -可配
-该配置根据需求配置。
-  ![image.png](https://upload-images.jianshu.io/upload_images/1592745-f1e48f5e13c01fa0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-#### （四） 构建配置-maven配置
-在Jenkins使用Maven构建项目自动化测试前，先通过本地使用maven测试是否通过。
-这里本来要将参数化构建，但参数化构建前先说明下是如何利用maven构建测试的。
 
 
 
@@ -457,18 +356,16 @@ TestNg测试结果收集，统计运行结果数据。
     - 填入access token。
 ![image.png](https://upload-images.jianshu.io/upload_images/1592745-4e1ca2a4d34564d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-##### 4. 构建后操作信息配置 钉钉通知器配置 二次开发 - 可选      
-    http://www.51testing.com/html/25/n-3723525.html
+
 
 
    
 #### 写在最后
-其实，接口自动化测试平台的搞起来不难。
+其实，UI自动化测试平台的搞起来不难。
 推动平台接入到持续集成，将测试变成一种服务，更快更及时的服务于项目，才是重点。
-正所谓：wiki一定，开发未动，接口已行。
-而，服务端测试才挑战。知识储备的深度决定了，测试的深度。
 
-个人GitHub:  https://github.com/Jsir07/TestHub
+
+
 欢迎Watch + Fork
 end...
     
