@@ -310,7 +310,9 @@ call pytest -s -q --reruns=0 --alluredir allure-results --clean-alluredir
 
 #### （六） 参数化构建过程 配置
   - 6.1添加参数 选择是 【选项参数】。
-    ![](https://upload-images.jianshu.io/upload_images/1592745-0486fbca91a38367.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+    ![](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914163240842-1308016030.png)
+    ![](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914163418508-2036618630.png)
+    
 
   - 6.2完整配置信息如下图。
         ![](https://upload-images.jianshu.io/upload_images/1592745-f586ae3356c5dd3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
