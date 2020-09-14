@@ -145,8 +145,8 @@ class TestCreatpl:
 
 
 
-### （四） TestCase测试用例
-##### 4.1 Test用例类
+## 三 TestCase测试用例
+##### 1.1 Test用例类
 - 首先，满足pytest工程结构在类名以Test_开头.```如：Test_ayx.java```
 - 其次，用feature标记整体流程，fixture开始流程。
  ```
@@ -164,7 +164,7 @@ class TestCreatpl:
         bd = bd_test(drivers)
         bd.createcw()
  ```
-##### 4.2 测试用例怎么写？
+##### 1.2 测试用例怎么写？
 - 目前的用例我是用项目来区别的，当然项目庞大的话你也可以用模块来区分，怎么区分也是一个学问，合适就行
  但是要符合用例的独立性，减少用例间的依赖。用例的话尽量封装一些会重复使用的流程，流程也不要定的过长。
 
@@ -175,7 +175,7 @@ markers =
 jzyx
 bd
 ```
-###### 4.3 说明
+###### 1.3 说明
 - 我这边分离页面元素是用yaml来保存页面元素，中文是用来说明元素的名称，里面还包含了定位器以及元素本身。
 ```
 用户名: "id==username"
@@ -230,7 +230,7 @@ bd
       ```
   
 
-### （五） allure报告
+### （一） allure报告
 > allure是什么？网上有很多关于使用allure替代pytest自带报告。原因是什么？
 > 漂亮。先上张图。
 
@@ -248,7 +248,7 @@ call pytest -s -q --reruns=0 --alluredir allure-results --clean-alluredir
     至此，allure美化报告完成。
 
 
-### （六）. selenium测试驱动原力
+### （二）. selenium测试驱动原力
 > 做UI自动化的没的说，那肯定是selenium了，现在selenium的官方文档也更新过了
 现在连官方文档都开始推荐使用POM模式了，大家有兴趣的可以去看看https://www.selenium.dev/documentation/en/getting_started/
 首先我们要做肯定是对于selenium原方法的封装，主要是统一方法，方便调用，每个用例都继承这个基类
@@ -302,13 +302,11 @@ call pytest -s -q --reruns=0 --alluredir allure-results --clean-alluredir
 
 
 ### 四、Jenkins部分配置
-> Jenkins的安装上面已有说明，这里不重复。
+> Jenkins的安装不多做说明，这里不重复。
+下面只讲重点
 
 
-
-
-
-#### （六） 参数化构建过程 配置
+#### （一） 参数化构建过程 配置
   - 6.1添加参数 选择是 【选项参数】。
     ![](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914163240842-1308016030.png)
     参数化
@@ -317,24 +315,24 @@ call pytest -s -q --reruns=0 --alluredir allure-results --clean-alluredir
      ![](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914163328205-886974637.png)
     
 
-#### （七） 源码管理配置
+#### （二） 源码管理配置
 这个配置网上有很多详细文档，这里不重复。具体度娘查看。
     ![image.png](https://upload-images.jianshu.io/upload_images/1592745-f6d102928da390fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#### （八） 构建触发器
+#### （三） 构建触发器
     > 这个配置可根据实际项目需求配置。个人建议: 自动化测试中的自动化最核心的是结合持续构建。   
     > 所以建议配置“代码提交时构建”，也可以填入所需测试的服务端项目构建后构建。当然要在一个Jenkins中。
   ![image.png](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914163318399-692905750.png)
 
-### （十） 构建后操作信息配置
-##### 9.1. allure html reports
+### （四） 构建后操作信息配置
+##### 4.1. allure html reports
 ![](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914163344378-596730886.png)
 
-#####  9.2 publish html reports
+#####  4.2 publish html reports
     通过jenkins发邮件通知结果。 
    ![image.png](https://img2020.cnblogs.com/blog/1789010/202009/1789010-20200914164139013-296597951.png)
 
-#####  9.3. 钉钉通知器配置
+#####  4.3. 钉钉通知器配置
     怎么玩转钉钉消息？查看https://blog.csdn.net/workdsz/article/details/77531802
     - 填入access token。
 ![image.png](https://upload-images.jianshu.io/upload_images/1592745-4e1ca2a4d34564d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
