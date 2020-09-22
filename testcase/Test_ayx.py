@@ -19,7 +19,7 @@ name = fake.name()
 @pytest.mark.jz
 class TestCreatpl:
     @pytest.fixture(scope='function', autouse=True)
-    def create(self, drivers):
+    def login(self, drivers):
         Create = Createpl(drivers)
         Create.get_url(ini.url)
         Create.login()
@@ -29,7 +29,7 @@ class TestCreatpl:
     # @pytest.mark.run(order=1)
     @allure.story("创建计划-输入内容-提交计划")
     @pytest.mark.run(order=1)
-    def test_cp(self, drivers):
+    def test_createplan(self, drivers):
         """点击营销
             创建计划
             选择人群包-输入计划内容"""
@@ -46,13 +46,13 @@ class TestCreatpl:
 
     @pytest.mark.run(order=2)
     @allure.story("创建人群包-创建")
-    def test_cr(self, drivers):
+    def test_crowd(self, drivers):
         uploading = upload(drivers)
         uploading.up()
 
     @allure.story("创建人群包-搜索")
     @pytest.mark.run(order=3)
-    def test_sr(self, drivers):
+    def test_search(self, drivers):
         uploading = upload(drivers)
         uploading.search_r()
 
