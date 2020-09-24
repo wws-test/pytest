@@ -131,3 +131,4 @@ def _capture_screenshot():
 def pytest_configure(config):
     config.addinivalue_line("markers", "jz:精准营销")
     config.addinivalue_line("markers", "bd:后台")
+    config.addinivalue_line("markers", "test1:测试单一用例")

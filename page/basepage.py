@@ -44,7 +44,6 @@ class Page(object):
 
     def isclick(self, locator):
         """点击"""
-        """点击"""
         self.find_element(locator).click()
         sleep()
         log.info("点击元素：{}".format(locator))
@@ -110,7 +109,7 @@ class Page(object):
     # def display(self, locator):
     #     self.driver.is_displayed(locator)
 
-    def upload_file(self, filename, browser_type="chrome"):
+    def upload_file(self, filepath, browser_type="chrome"):
         '''
         非input标签的文件上传
         :param filename: 文件名（绝对路径）
@@ -119,11 +118,11 @@ class Page(object):
         :return:
         '''
         try:
-            log.info("上传文件（{}）".format(filename))
+            log.info("上传文件（{}）".format(filepath))
             sleep(2)
-            upload(filePath=filename, browser_type=browser_type)
+            upload(filePath=filepath, browser_type=browser_type)
         except Exception as e:
-            log.error("上传文件（{}）失败！".format(filename))
+            log.error("上传文件（{}）失败！".format(filepath))
             raise e
         else:
             sleep(2)

@@ -46,9 +46,13 @@ class TestCreatpl:
 
     @pytest.mark.run(order=2)
     @allure.story("创建人群包-创建")
+    @pytest.mark.test1
     def test_crowd(self, drivers):
         uploading = upload(drivers)
-        uploading.up()
+        uploading.up1()
+        result = uploading.created_crowd()
+        log.info("人群包名称".format(result))
+        assert result== uploading.na()
 
     @allure.story("创建人群包-搜索")
     @pytest.mark.run(order=3)
