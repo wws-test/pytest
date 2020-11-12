@@ -22,7 +22,7 @@ def drivers(request):
         options = webdriver.ChromeOptions()
         options.add_argument('--disable-desktop-notifications')
         options.add_argument('--blink-settings=imagesEnabled=false')
-        driver = webdriver.Chrome(options=options)
+        driver = webdriver.Chrome(options=options,executable_path="C:\\Users\\Administrator\\AppData\Local\\Google\Chrome\\Application\\chromedriver.exe")
     inspect_element()
     testclear()
 
