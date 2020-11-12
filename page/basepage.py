@@ -1,3 +1,5 @@
+from functools import wraps
+
 from selenium.common.exceptions import TimeoutException, ElementNotVisibleException, ElementNotSelectableException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -6,6 +8,9 @@ from tools.time import sleep
 from tools.logger import log
 from selenium.webdriver.support.ui import Select
 from common.upload_file import upload
+import helium
+
+js1 = "border: 4px solid red;"
 
 
 class Page(object):
@@ -18,7 +23,7 @@ class Page(object):
         self.driver = driver
         self.timeout = 30
         self.wait = WebDriverWait(self.driver, self.timeout)
-
+        driver.maximize_window()
 
     @staticmethod
     def element_locator(func, locator):
@@ -45,6 +50,11 @@ class Page(object):
     def isclick(self, locator):
         """点击"""
         self.find_element(locator).click()
+
+        ele = self.find_element(locator)
+        self.driver.execute_script(
+            "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
+
         sleep()
         log.info("点击元素：{}".format(locator))
 
@@ -53,7 +63,7 @@ class Page(object):
 
     def get_url(self, base_url):
         """打开网址并验证"""
-        self.driver.set_window_size(1600,900)
+        self.driver.set_window_size(1600, 900)
         log.info("设置页面大小")
         self.driver.set_page_load_timeout(60)
         try:
@@ -76,14 +86,18 @@ class Page(object):
 
     def element_text(self, locator):
         """获取当前的text"""
-        _text = self.find_element(locator).text
-        log.info("获取文本：{}".format(_text))
-        return _text
+        ele = self.find_element(locator)
+        self.driver.execute_script(
+            "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
+        ww_text = self.find_element(locator).text
+        log.info("获取文本：{}".format(ww_text))
+        return ww_text
 
     def send_key(self, locator, text):
         """输入(输入前先清空)"""
         sleep(1)
         ele = self.find_element(locator)
+        self.driver.execute_script("arguments[0].setAttribute('style', arguments[1]);", ele,js1)
         ele.clear()
         ele.send_keys(text)
         log.info("输入文本：{}".format(text))
@@ -94,14 +108,24 @@ class Page(object):
         self.driver.execute_script("arguments[0].scrollIntoView();", target)
         sleep(0.5)
 
+    def roll(self):
+        js = "document.documentElement.scrollTop=10000"
+        self.driver.execute_script(js)
+
     def option(self, locator):
         # 定位下拉框
+        ele = self.find_element(locator)
+        self.driver.execute_script(
+            "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
         select = self.driver.find_element(locator)
         # 定位列表
         Select(select).select_by_index(1)
 
     def get_text(self, locator):
         """获取当前的text"""
+        ele = self.find_element(locator)
+        self.driver.execute_script(
+            "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
         _text = self.find_element(locator).text
         log.info("获取文本：{}".format(_text))
         return _text
@@ -121,6 +145,7 @@ class Page(object):
             log.info("上传文件（{}）".format(filepath))
             sleep(2)
             upload(filePath=filepath, browser_type=browser_type)
+
         except Exception as e:
             log.error("上传文件（{}）失败！".format(filepath))
             raise e
@@ -128,8 +153,7 @@ class Page(object):
             sleep(2)
 
     def wait(self):
-        wait = WebDriverWait(self.driver, 10, poll_frequency=1, ignored_exceptions=[
-                             ElementNotVisibleException, ElementNotSelectableException])
+        self.driver.implicitly_wait(3)
         # ww = wait.until(EC.element_to_be_clickable((locator)))
 
 

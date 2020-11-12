@@ -3,6 +3,8 @@ import os
 import re
 import pytest
 import allure
+from pytest_base_url.plugin import base_url
+
 from page_object.Createplan import *
 from faker import Faker
 
@@ -17,16 +19,16 @@ name = fake.name()
 @allure.feature("jzyx-基本流程")
 # @pytest.mark.flaky(reruns=2, reruns_delay=5)
 @pytest.mark.jz
-class TestCreatpl:
+class TestCreatpl():
     @pytest.fixture(scope='function', autouse=True)
     def login(self, drivers):
         Create = Createpl(drivers)
         Create.get_url(ini.url)
         Create.login()
 
-
     # @pytest.mark.skip(reason="no way of currently testing this")
     # @pytest.mark.run(order=1)
+
     @allure.story("创建计划-输入内容-提交计划")
     @pytest.mark.run(order=1)
     def test_createplan(self, drivers):
@@ -39,11 +41,11 @@ class TestCreatpl:
         Create.Fillplan()
         result = Create.get_result()
         log.info("结果".format(result))
-        assert  result== "提交成功，等待审核..."
-
+        assert result == "提交成功，等待审核..."
 
     # @pytest.mark.skip(reason="no way of currently testing this")
 
+    @pytest.mark.skip
     @pytest.mark.run(order=2)
     @allure.story("创建人群包-创建")
     @pytest.mark.test1
@@ -52,10 +54,11 @@ class TestCreatpl:
         uploading.up1()
         result = uploading.created_crowd()
         log.info("人群包名称".format(result))
-        assert result== uploading.na()
+        assert result == uploading.na()
 
     @allure.story("创建人群包-搜索")
     @pytest.mark.run(order=3)
+    @pytest.mark.skip
     def test_search(self, drivers):
         uploading = upload(drivers)
         uploading.search_r()
@@ -63,4 +66,5 @@ class TestCreatpl:
 
 if __name__ == '__main__':
     pytest.main(['testcase/Test_ayx'])
+
     print(name)

@@ -28,7 +28,7 @@ def drivers(request):
 
     def fn():
         driver.quit()
-
+    # 将fn方法作为整体运行的结尾
     request.addfinalizer(fn)
     return driver
 
@@ -108,8 +108,8 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
         'total times': timestamp() - terminalreporter._sessionstarttime
     }
     print(result)
-    if result['failed'] or result['error']:
-        send_report()
+    # if result['failed'] or result['error']:
+    #     send_report()
 
 
 def _capture_screenshot():
@@ -121,6 +121,7 @@ def _capture_screenshot():
         os.makedirs(SCREENSHOT_DIR)
     screen_path = os.path.join(SCREENSHOT_DIR, "{}.png".format(now_time))
     driver.save_screenshot(screen_path)
+    # allure添加失败截图
     allure.attach.file(screen_path, "测试失败截图...{}".format(
         now_time), allure.attachment_type.PNG)
     with open(screen_path, 'rb') as f:
