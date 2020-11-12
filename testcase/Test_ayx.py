@@ -45,7 +45,6 @@ class TestCreatpl():
 
     # @pytest.mark.skip(reason="no way of currently testing this")
 
-    @pytest.mark.skip
     @pytest.mark.run(order=2)
     @allure.story("创建人群包-创建")
     @pytest.mark.test1
@@ -58,7 +57,6 @@ class TestCreatpl():
 
     @allure.story("创建人群包-搜索")
     @pytest.mark.run(order=3)
-    @pytest.mark.skip
     def test_search(self, drivers):
         uploading = upload(drivers)
         uploading.search_r()
