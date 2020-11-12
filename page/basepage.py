@@ -8,7 +8,6 @@ from tools.time import sleep
 from tools.logger import log
 from selenium.webdriver.support.ui import Select
 from common.upload_file import upload
-import helium
 
 js1 = "border: 4px solid red;"
 
