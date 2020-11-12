@@ -96,7 +96,8 @@ class Page(object):
         """输入(输入前先清空)"""
         sleep(1)
         ele = self.find_element(locator)
-        self.driver.execute_script("arguments[0].setAttribute('style', arguments[1]);", ele,js1)
+        self.driver.execute_script(
+            "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
         ele.clear()
         ele.send_keys(text)
         log.info("输入文本：{}".format(text))
