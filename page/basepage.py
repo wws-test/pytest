@@ -22,7 +22,6 @@ class Page(object):
         self.driver = driver
         self.timeout = 30
         self.wait = WebDriverWait(self.driver, self.timeout)
-        driver.maximize_window()
 
     @staticmethod
     def element_locator(func, locator):
@@ -63,7 +62,7 @@ class Page(object):
     def get_url(self, base_url):
         """打开网址并验证"""
         self.driver.set_window_size(1600, 900)
-        log.info("设置页面大小")
+        log.info("设置页面大小-1600x900")
         self.driver.set_page_load_timeout(60)
         try:
             self.driver.get(base_url)
@@ -88,9 +87,9 @@ class Page(object):
         ele = self.find_element(locator)
         self.driver.execute_script(
             "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
-        ww_text = self.find_element(locator).text
-        log.info("获取文本：{}".format(ww_text))
-        return ww_text
+        _text = self.find_element(locator).text
+        log.info("获取文本：{}".format(_text))
+        return _text
 
     def send_key(self, locator, text):
         """输入(输入前先清空)"""
@@ -105,7 +104,7 @@ class Page(object):
     def focus(self, locator):
         # 聚焦到某个元素
         target = self.find_element(locator)
-        self.driver.execute_script("arguments[0].scrollIntoView();", target)
+        self.driver.execute_script("arguments[0].focus();", target)
         sleep(0.5)
 
     def roll(self):

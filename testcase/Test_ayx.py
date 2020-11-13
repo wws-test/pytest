@@ -31,6 +31,7 @@ class TestCreatpl():
 
     @allure.story("创建计划-输入内容-提交计划")
     @pytest.mark.run(order=1)
+
     def test_createplan(self, drivers):
         """点击营销
             创建计划
@@ -47,6 +48,7 @@ class TestCreatpl():
 
     @pytest.mark.run(order=2)
     @allure.story("创建人群包-创建")
+
     @pytest.mark.test1
     def test_crowd(self, drivers):
         uploading = upload(drivers)
@@ -56,6 +58,7 @@ class TestCreatpl():
         assert result == uploading.na()
 
     @allure.story("创建人群包-搜索")
+
     @pytest.mark.run(order=3)
     def test_search(self, drivers):
         uploading = upload(drivers)
@@ -63,6 +66,6 @@ class TestCreatpl():
 
 
 if __name__ == '__main__':
-    pytest.main(['testcase/Test_ayx'])
+    pytest.main(['testcase/Test_ayx::test_createplan'])
 
     print(name)
