@@ -32,6 +32,7 @@ class bd_test(Page):
         self.isclick(search['通过'])
         self.isclick(search['确定'])
     def createcw(self):
+        sleep(1)
         self.isclick(search['人群包管理'])
         self.isclick(search['创建人群包'])
         self.isclick(search['人群包选择'])

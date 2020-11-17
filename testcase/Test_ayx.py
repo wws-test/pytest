@@ -28,7 +28,6 @@ class TestCreatpl():
 
     # @pytest.mark.skip(reason="no way of currently testing this")
     # @pytest.mark.run(order=1)
-
     @allure.story("创建计划-输入内容-提交计划")
     @pytest.mark.run(order=1)
 
@@ -45,9 +44,8 @@ class TestCreatpl():
         assert result == "提交成功，等待审核..."
 
     # @pytest.mark.skip(reason="no way of currently testing this")
-
     @pytest.mark.run(order=2)
-    @allure.story("创建人群包-创建")
+    @allure.story("创建人群包-上传人群包")
 
     @pytest.mark.test1
     def test_crowd(self, drivers):

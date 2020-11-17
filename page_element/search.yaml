@@ -7,7 +7,6 @@
 内容: "xpath==//body//textarea[1]"
 链接: "xpath==//input[@placeholder='请将网址复制到此输入框']"
 提交: "xpath==//button[@class='ant-btn ant-btn-primary']"
-搜索框: "id==kw"
 账号: "xpath==//input[@placeholder='请输入用户名']"
 密码: "xpath==//input[@placeholder='请输入密码']"
 登录: "xpath==//button[@class='login-form-button ant-btn ant-btn-primary']"

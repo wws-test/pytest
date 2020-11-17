@@ -1,6 +1,7 @@
 from functools import wraps
 
-from selenium.common.exceptions import TimeoutException, ElementNotVisibleException, ElementNotSelectableException
+from selenium.common.exceptions import TimeoutException, ElementNotVisibleException, ElementNotSelectableException, \
+    NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from config.conf import LOCATE_MODE
@@ -45,14 +46,16 @@ class Page(object):
         log.info("相同元素：{}".format((locator, number)))
         return number
 
+    def is_element_present(self, locator):
+        try:
+            ele = self.find_element(locator)
+        except NoSuchElementException as e:
+            return False
+        return True
+
     def isclick(self, locator):
         """点击"""
         self.find_element(locator).click()
-
-        ele = self.find_element(locator)
-        self.driver.execute_script(
-            "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
-
         sleep()
         log.info("点击元素：{}".format(locator))
 
@@ -84,9 +87,6 @@ class Page(object):
 
     def element_text(self, locator):
         """获取当前的text"""
-        ele = self.find_element(locator)
-        self.driver.execute_script(
-            "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
         _text = self.find_element(locator).text
         log.info("获取文本：{}".format(_text))
         return _text
@@ -95,8 +95,8 @@ class Page(object):
         """输入(输入前先清空)"""
         sleep(1)
         ele = self.find_element(locator)
-        self.driver.execute_script(
-            "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
+        # self.driver.execute_script(
+        #     "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
         ele.clear()
         ele.send_keys(text)
         log.info("输入文本：{}".format(text))
@@ -104,27 +104,21 @@ class Page(object):
     def focus(self, locator):
         # 聚焦到某个元素
         target = self.find_element(locator)
-        self.driver.execute_script("arguments[0].focus();", target)
+        self.driver.execute_script("arguments[0].scrollIntoView();", target)
         sleep(0.5)
 
     def roll(self):
-        js = "document.documentElement.scrollTop=10000"
+        js = "window.scrollTo(0,document.body.scrollHeight)"
         self.driver.execute_script(js)
 
     def option(self, locator):
         # 定位下拉框
-        ele = self.find_element(locator)
-        self.driver.execute_script(
-            "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
         select = self.driver.find_element(locator)
         # 定位列表
         Select(select).select_by_index(1)
 
     def get_text(self, locator):
         """获取当前的text"""
-        ele = self.find_element(locator)
-        self.driver.execute_script(
-            "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
         _text = self.find_element(locator).text
         log.info("获取文本：{}".format(_text))
         return _text

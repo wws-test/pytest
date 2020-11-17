@@ -24,7 +24,7 @@ class TestCreatpl:
 
     # @pytest.mark.skip(reason="no way of currently testing this")
 
-    @allure.story("创建人群包-搜索")
+    @allure.story("创建人群包-创建")
     @pytest.mark.run(order=4)
     def test_cw(self, drivers):
         bd = bd_test(drivers)
@@ -38,6 +38,6 @@ class TestCreatpl:
         bd.check()
 
 
-# if __name__ == '__main__':
-#     pytest.main(['testcase/Test_BD'])
-#     print(name)
+if __name__ == '__main__':
+    pytest.main(['testcase/Test_BD'])
+    print(name)
