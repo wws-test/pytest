@@ -3,7 +3,6 @@
 创建: "xpath==//button[@class='g_btn_normal btn4 ant-btn ant-btn-primary']"
 下一步: "xpath==//button[@class='primary_newxt ant-btn ant-btn-primary']"
 计划名称: "xpath==//span[@class='ant-form-item-children']//input[@placeholder='请输入计划名称']"
-签名: "xpath==//input[@placeholder='请输入短信签名']"
 内容: "xpath==//body//textarea[1]"
 链接: "xpath==//input[@placeholder='请将网址复制到此输入框']"
 提交: "xpath==//button[@class='ant-btn ant-btn-primary']"

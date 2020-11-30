@@ -11,7 +11,7 @@ from config.conf import SCREENSHOT_DIR
 from common.inspect import inspect_element
 from tools.send_mail import send_report
 from tools.time import datetime_strftime, timestamp
-from tools.clear import testclear
+from tools.clear import picclear
 driver = None
 
 
@@ -20,13 +20,12 @@ def drivers(request):
     global driver
     if driver is None:
         options = webdriver.ChromeOptions()
-        options.add_argument('--disable-desktop-notifications')
         options.add_argument('--blink-settings=imagesEnabled=false')
         driver = webdriver.Chrome(
             options=options,
             executable_path=r"C:\\Users\\Administrator\\AppData\Local\\Google\Chrome\\Application\\chromedriver.exe")
     inspect_element()
-    testclear()
+    picclear()
 
     def fn():
         driver.quit()
@@ -131,6 +130,6 @@ def _capture_screenshot():
 
 
 def pytest_configure(config):
-    config.addinivalue_line("markers", "jz:精准营销")
-    config.addinivalue_line("markers", "bd:后台")
+    config.addinivalue_line("markers", "precision:精准营销")
+    config.addinivalue_line("markers", "business:后台")
     config.addinivalue_line("markers", "test1:测试单一用例")

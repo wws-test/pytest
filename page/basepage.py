@@ -75,7 +75,7 @@ class Page(object):
             raise TimeoutException("打开%s超时请检查网络或网址服务器" % base_url)
 
     def switch_frame(self, loc):
-        return self.driver.switch_to.frame(loc)
+        self.driver.switch_to.frame(loc)
 
     def script(self, src):
         self.driver.execute_script(src)
@@ -95,8 +95,6 @@ class Page(object):
         """输入(输入前先清空)"""
         sleep(1)
         ele = self.find_element(locator)
-        # self.driver.execute_script(
-        #     "arguments[0].setAttribute('style', arguments[1]);", ele, js1)
         ele.clear()
         ele.send_keys(text)
         log.info("输入文本：{}".format(text))

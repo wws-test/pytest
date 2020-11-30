@@ -3,7 +3,7 @@ import shutil
 from config.conf import SCREENSHOT_DIR,BASE_DIR
 
 os.chdir(SCREENSHOT_DIR)  # 切换到SCREENSHOT_DIR目录
-def testclear():
+def picclear():
     # try:
     #     shutil.rmtree('allure-results')  # 清空screen_capture目录下的文件,整个文件夹都删了，不可取
     # except FileNotFoundError as e:
@@ -16,4 +16,4 @@ def testclear():
 os.chdir(BASE_DIR)  # 切换到项目根目录
 
 if __name__ == '__main__':
-   testclear()
+    picclear()

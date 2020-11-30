@@ -78,7 +78,6 @@ def select(param, fields='*'):
 
 
 if __name__ == '__main__':
-    sql = 'SELECT  * FROM qc_rule_info WHERE name= "wss"'
+    sql = 'SELECT  * FROM qc_rule_info WHERE name= "111"'
     data = execute_sql(sql)
-    da = select('qc_rule_info','ww')
-    print(da)
+    print(data)

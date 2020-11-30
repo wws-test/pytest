@@ -13,7 +13,7 @@ name = fake.name()
 
 @allure.feature("bd-后台审核")
 # @pytest.mark.flaky(reruns=2, reruns_delay=5)
-@pytest.mark.bd
+@pytest.mark.business
 class TestCreatpl:
 
     @pytest.fixture(scope='function', autouse=True)
@@ -35,7 +35,7 @@ class TestCreatpl:
     @pytest.mark.run(order=5)
     def test_ch(self, drivers):
         bd = bd_test(drivers)
-        bd.check()
+        bd.dx_check()
 
 
 if __name__ == '__main__':

@@ -18,7 +18,7 @@ name = fake.name()
 
 @allure.feature("jzyx-基本流程")
 # @pytest.mark.flaky(reruns=2, reruns_delay=5)
-@pytest.mark.jz
+@pytest.mark.precision
 class TestCreatpl():
     @pytest.fixture(scope='function', autouse=True)
     def login(self, drivers):
@@ -30,7 +30,6 @@ class TestCreatpl():
     # @pytest.mark.run(order=1)
     @allure.story("创建计划-输入内容-提交计划")
     @pytest.mark.run(order=1)
-
     def test_createplan(self, drivers):
         """点击营销
             创建计划
@@ -46,7 +45,6 @@ class TestCreatpl():
     # @pytest.mark.skip(reason="no way of currently testing this")
     @pytest.mark.run(order=2)
     @allure.story("创建人群包-上传人群包")
-
     @pytest.mark.test1
     def test_crowd(self, drivers):
         uploading = upload(drivers)
@@ -56,7 +54,6 @@ class TestCreatpl():
         assert result == uploading.na()
 
     @allure.story("创建人群包-搜索")
-
     @pytest.mark.run(order=3)
     def test_search(self, drivers):
         uploading = upload(drivers)
