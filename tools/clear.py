@@ -12,6 +12,8 @@ def picclear():
         if i.endswith(".png"):
             # print(os.listdir(SCREENSHOT_DIR))
             os.remove(os.path.join(SCREENSHOT_DIR,i))
+            os.mkdir('screen_capture')
+
 
 os.chdir(BASE_DIR)  # 切换到项目根目录
 

@@ -25,7 +25,7 @@ def drivers(request):
             options=options,
             executable_path=r"C:\\Users\\Administrator\\AppData\Local\\Google\Chrome\\Application\\chromedriver.exe")
     inspect_element()
-    # picclear()
+    picclear()
 
     def fn():
         driver.quit()
