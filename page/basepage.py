@@ -2,9 +2,10 @@ from functools import wraps
 
 from selenium.common.exceptions import TimeoutException, ElementNotVisibleException, ElementNotSelectableException, \
     NoSuchElementException
-from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from config.conf import LOCATE_MODE
+from conftest import driver
 from tools.time import sleep
 from tools.logger import log
 from selenium.webdriver.support.ui import Select
