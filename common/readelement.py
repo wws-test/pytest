@@ -27,4 +27,4 @@ class Element:
 
 if __name__ == '__main__':
     search = Element('back')
-    print(search['人群名称'])
+    print(search['分配'])

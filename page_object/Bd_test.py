@@ -58,4 +58,5 @@ class bd_test(Page):
         self.isclick(search['添加'])
         self.send_key(search['人群标签'],post1)
         self.isclick(search['添加'])
+        self.isclick(search['绑定账号'])
         self.isclick(search['确定创建'])
