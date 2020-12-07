@@ -3,9 +3,9 @@ import shutil
 from config.conf import SCREENSHOT_DIR, BASE_DIR
 from tools.logger import Log
 
-os.chdir(SCREENSHOT_DIR)  # 切换到SCREENSHOT_DIR目录
-
 log = Log().logger
+
+
 def picclear():
     # try:
     #     shutil.rmtree('allure-results')  # 清空screen_capture目录下的文件,整个文件夹都删了，不可取
