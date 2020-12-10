@@ -29,8 +29,7 @@ class TestCreatpl():
     # @pytest.mark.skip(reason="no way of currently testing this")
     # @pytest.mark.run(order=1)
     @allure.story("创建计划-输入内容-提交短信计划")
-    @pytest.mark.run(order=1)
-    def test_createplan(self, drivers):
+    def test_create_note_plan(self, drivers):
         """点击营销
             创建计划
             选择人群包-输入计划内容"""
@@ -41,8 +40,9 @@ class TestCreatpl():
         result = Create.get_result()
         log.info("结果".format(result))
         assert result == "提交成功，等待审核..."
+
     @allure.story("创建计划-输入内容-提交已有短信计划")
-    def test_createplan(self, drivers):
+    def test_create_ready_plan(self, drivers):
         """点击营销
             选择已有计划
             选择人群包-输入计划内容"""
@@ -53,9 +53,10 @@ class TestCreatpl():
         result = Create.get_result()
         log.info("结果".format(result))
         assert result == "提交成功，等待审核..."
+
     @allure.story("创建计划-输入内容-提交视频计划")
     # @pytest.mark.run(order=1)
-    def test_createplan(self, drivers):
+    def test_create_video_plan(self, drivers):
         Create = Createpl(drivers)
         Create.clickprecision()
         Create.Selectcrowd()
@@ -64,8 +65,8 @@ class TestCreatpl():
         log.info("结果".format(result))
         assert result == "提交成功，等待审核..."
 
-
     # @pytest.mark.skip(reason="no way of currently testing this")
+
     @pytest.mark.run(order=2)
     @allure.story("创建人群包-上传人群包")
     @pytest.mark.test1
@@ -83,7 +84,7 @@ class TestCreatpl():
         uploading.search_r()
 
     @allure.story("创建视频模板")
-    def test_Create_template(self,drivers):
+    def test_Create_template(self, drivers):
         Create = Createpl(drivers)
         Create.Create_template()
 
