@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from common.readconfig import ini
 from page.basepage import Page, sleep
 from common.readelement import Element
-from common import readconfig
+
 from faker import Faker
 
 fake = Faker(locale='zh_CN')

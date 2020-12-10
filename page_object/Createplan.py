@@ -46,17 +46,26 @@ class Createpl(Page):
     def Selectcrowd(self):
         # 选择人群包 这边直接选了第一个
         self.isclick(search['第一个人群包'])
-    def Fillplan(self):
-        # 填写内容
+    def Fill_note_plan(self):
+        """填写短信内容"""
         sleep(1)
         self.focus(search['提交'])
-        self.send_key(search['计划名称'], post)
+        self.send_key(search['短信计划名称'], post)
         self.send_key(search['内容'], "【短信签名】%s" % ad)
         self.isclick(search['置入动态短链'])
         self.send_key(search['短链'], url)
-        self.isclick(search['提交'])
+        self.isclick(search['提交审核'])
 
+    def Fill_video_plan(self):
+        """填写视频短信内容"""
         sleep(1)
+        self.focus(search['提交审核'])
+        self.isclick(search['选择视频短信'])
+        self.send_key(search['视频计划名称'], post)
+        self.isclick(search['选择模板'])
+        self.isclick(search['点击模板'])
+        self.isclick(search['模板确定'])
+        self.isclick(search['提交审核'])
 
     def get_result(self):
         a = self.get_text(search['待审核'])
@@ -64,12 +73,26 @@ class Createpl(Page):
         log.info("待审核=：{}".format(a))
 
     def alreadyplan(self):
+        """提交已有计划"""
         self.focus(search['提交'])
-        self.send_key(search['计划名称'], name)
+        self.send_key(search['短信计划名称'], name)
         self.isclick(search['选择已有计划'])
         self.isclick(search['下拉框'])
-        self.isclick(search['选择计划'])
-        self.isclick(search['提交'])
+        self.isclick(search['下拉框第一个'])
+        self.isclick(search['提交审核'])
+
+    def Create_template(self):
+        """创建短信模板"""
+        self.isclick(search['我的模板'])
+        self.isclick(search['视频短信'])
+        self.isclick(search['创建模板'])
+        self.send_key(search['主题'],post)
+        self.isclick(search['文本帧'])
+        self.isclick(search['视频帧'])
+        self.send_key(search['输入文本帧'],"【短信签名】%s" % ad)
+        self.isclick(search['点击上传视频'])
+        self.upload_file("C:\\Users\\Administrator\\Desktop\\passages\\test.mp4")
+        self.isclick(search['提交审核'])
 
 
 if __name__ == '__main__':
