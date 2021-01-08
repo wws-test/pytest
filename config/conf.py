@@ -15,6 +15,9 @@ LOG_PATH = os.path.join(BASE_DIR, 'logs')
 # 截图目录
 SCREENSHOT_DIR = os.path.join(BASE_DIR, 'screen_capture')
 
+# 数据文件
+DATA_DIR = os.path.join(BASE_DIR, 'apitest\\apiData')
+
 # 报告目录
 REPORT_PATH = os.path.join(BASE_DIR, 'report', 'report.html')
 
@@ -41,4 +44,4 @@ ADDRESSEE = [
 ]
 
 if __name__ == '__main__':
-    print(BASE_DIR)
+    print(DATA_DIR)
