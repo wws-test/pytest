@@ -17,9 +17,10 @@ name = fake.name()
 class TestCreatpl:
 
     @pytest.fixture(scope='function', autouse=True)
-    def create(self, drivers):
+    def create(self, drivers , request):
+        env = request.config.getoption("bdenv")
         bd = bd_test(drivers)
-        bd.get_url(ini.bdurl)
+        bd.get_url(env)
         bd.login()
 
     # @pytest.mark.skip(reason="no way of currently testing this")

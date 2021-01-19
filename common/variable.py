@@ -9,7 +9,8 @@ class Variable(object):
         setattr(self, key, value)
 
     def get(self, key):
-        return getattr(self, key)
+        a=getattr(self,key)
+        return a
 
     def has(self, key):
         return hasattr(self, key)
@@ -18,5 +19,5 @@ class Variable(object):
 is_vars = Variable()
 
 if __name__ == '__main__':
-    is_vars.set('name', 'hoou')
-    print(is_vars.get('name'))
+    is_vars.set('bindId', 'hoou')
+    print(is_vars.get('bindId'))

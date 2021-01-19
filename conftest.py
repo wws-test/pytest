@@ -8,8 +8,7 @@ from py._xmlgen import html
 from selenium import webdriver
 from common.readconfig import ini
 from config.conf import SCREENSHOT_DIR
-from common.inspect import inspect_element
-from tools.send_mail import send_report
+from common.inspects import inspect_element
 from tools.time import datetime_strftime, timestamp
 from tools.clear import picclear
 driver = None
@@ -33,6 +32,15 @@ def drivers(request):
     request.addfinalizer(fn)
     return driver
 
+
+# 注册自定义参数 cmdopt 到配置对象
+def pytest_addoption(parser):
+    parser.addoption("--testenv", action="store",
+                     default="http://192.168.0.202/precision-web/login#/login",
+                     help="将自定义命令行参数 ’--testenv' 添加到 pytest 配置中")
+    parser.addoption("--bdenv", action="store",
+                     default="http://192.168.0.202/mgt/login",
+                     help="将自定义命令行参数 ’--bdenv' 添加到 pytest 配置中")
 
 @pytest.mark.hookwrapper
 def pytest_runtest_makereport(item):

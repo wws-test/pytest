@@ -3,7 +3,6 @@ import os
 import re
 import pytest
 import allure
-from pytest_base_url.plugin import base_url
 
 from page_object.Createplan import *
 from faker import Faker
@@ -19,11 +18,12 @@ name = fake.name()
 @allure.feature("jzyx-基本流程")
 # @pytest.mark.flaky(reruns=2, reruns_delay=5)
 @pytest.mark.precision
-class TestCreatpl():
+class TestCreatpl:
     @pytest.fixture(scope='function', autouse=True)
-    def login(self, drivers):
+    def login(self, drivers, request):
+        env = request.config.getoption("testenv")
         Create = Createpl(drivers)
-        Create.get_url(ini.url)
+        Create.get_url(env)
         Create.login()
 
     # @pytest.mark.skip(reason="no way of currently testing this")

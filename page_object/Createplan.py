@@ -11,6 +11,7 @@ from faker import Faker
 from tools.logger import Log
 
 fake = Faker(locale='zh_CN')
+fake.seed(4321)
 name = fake.company()
 ad = fake.address()
 post = fake.postcode()

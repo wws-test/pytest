@@ -3,6 +3,8 @@
 import allure
 
 from requests import Response
+
+from common.ApiData import testinfo
 from common.variable import is_vars
 from common.RegExp import regs
 from tools.logger import log
@@ -18,6 +20,7 @@ def get_result(r: Response, extract):
     with allure.step("提取返回结果中的值"):
         for i in extract:
             allure.attach(name="提取%s" % i, body=''.join(is_vars.get(i)))
+
 
 
 
