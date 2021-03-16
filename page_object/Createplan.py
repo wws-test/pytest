@@ -8,7 +8,6 @@ from common.readelement import Element
 from common import readconfig
 from faker import Faker
 
-from tools.logger import Log
 
 fake = Faker(locale='zh_CN')
 fake.seed(4321)
@@ -17,7 +16,7 @@ ad = fake.address()
 post = fake.postcode()
 url = fake.url()
 search = Element('search')
-log = Log().logger
+
 
 
 class Createpl(Page):
@@ -71,7 +70,7 @@ class Createpl(Page):
     def get_result(self):
         a = self.get_text(search['待审核'])
         return a
-        log.info("待审核=：{}".format(a))
+
 
     def alreadyplan(self):
         """提交已有计划"""

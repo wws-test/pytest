@@ -1,14 +1,12 @@
-﻿登录:
-  method: post
-  route: /ann/login
-  RequestData:
-    data:
-      username: manager
-      password: 123456
-      rememberMe: false
-      verificationCode: false
-  expectcode: 200
-  resultcheck: '"code":1'
-  regularcheck:
-  extractresult:
-    - "data"
+﻿method: post
+route: /ann/login
+RequestData:
+  data:
+    username: manager
+    password: 123456
+    rememberMe: false
+    verificationCode: false
+expectcode: 200
+resultcheck: '"code":1'
+extractresult:
+  - "data"

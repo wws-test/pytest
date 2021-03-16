@@ -1,14 +1,13 @@
-﻿axb解绑:
-  method: post
-  route: /api/axb/unbind
-  RequestData:
-    data:
-      key: $key
-      timestamp: $timestamp
-      sign: $sign
-      requestId:  $requestId
-      bindId: $bindId
-  expectcode: 200
-  resultcheck: '"code":1'
-  regularcheck:
-  extractresult:
+﻿method: post
+route: /api/axb/unbind
+RequestData:
+  data:
+    key: $key
+    timestamp: $timestamp
+    sign: $sign
+    requestId:  $requestId
+    bindId: $bindId
+expectcode: 200
+resultcheck: '"code":1'
+regularcheck:
+extractresult:

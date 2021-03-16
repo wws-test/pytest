@@ -8,9 +8,8 @@ from page_object.Createplan import *
 from faker import Faker
 
 from page_object.upload import upload
-from tools.logger import Log
+from tools.logger import Log, log
 
-log = Log().logger
 fake = Faker(locale='zh_CN')
 name = fake.name()
 
@@ -66,7 +65,6 @@ class TestCreatpl:
         assert result == "提交成功，等待审核..."
 
     # @pytest.mark.skip(reason="no way of currently testing this")
-
     @pytest.mark.run(order=2)
     @allure.story("创建人群包-上传人群包")
     @pytest.mark.test1

@@ -1,83 +1,62 @@
 ﻿import pymysql
-import pandas as pd
+import os
 
-localhost = "192.168.0.200"
-user = "root"
-pwd = "at#mysql!321"
-db1 = "cc_detection"
-try:
-    cnx = pymysql.connect(localhost, user, pwd, db1, charset='utf8')
-except BaseException:
-    print('连接数据库失败,请检查连接条件')
-# 通过 cursor() 创建游标对象，并让查询结果以字典格式输出
-cursor = cnx.cursor(cursor=pymysql.cursors.DictCursor)
+from common.ApiData import testinfo
+from config.conf import DATA_DIR, BASE_DIR
+from tools.logger import log
 
+data_file_path = os.path.join(BASE_DIR, "config", "config.ini")
+data = testinfo.load_ini(data_file_path)["mysql"]
 
-def execute_sql(sql):
-
-    try:
-        cursor.execute(sql)
-    except BaseException:
-        print('查询失败，请检查sql')
-    results = cursor.fetchall()
-    col = cursor.description
-
-    data = pd.DataFrame(list(results), columns=pd.DataFrame(list(col))[0])
-
-    cnx.close()
-    return data
+DB_CONF = {
+    "host": data["MYSQL_HOST"],
+    "port": int(data["MYSQL_PORT"]),
+    "user": data["MYSQL_USER"],
+    "password": data["MYSQL_PASSWD"],
+    "db": data["MYSQL_DB"]
+}
 
 
-def insert(table_name, insert_dict):
-    param = ''
-    value = ''
-    if(isinstance(insert_dict, dict)):
-        for key in insert_dict.keys():
-            param = param + key + ","
-            value = value + insert_dict[key] + ','
-        param = param[:-1]
-        value = value[:-1]
-    sql = "insert into %s (%s) values(%s)" % (table_name, param, value)
-    cursor.execute(sql)
-    id = cursor.lastrowid
-    cnx.commit()
-    return id
+class MysqlDb():
+
+    def __init__(self, db_conf=DB_CONF):
+        # 通过字典拆包传递配置信息，建立数据库连接
+        self.conn = pymysql.connect(**db_conf, autocommit=True)
+        # 通过 cursor() 创建游标对象，并让查询结果以字典格式输出
+        self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+
+    def __del__(self):  # 对象资源被释放时触发，在对象即将被删除时的最后操作
+        # 关闭游标
+        self.cur.close()
+        # 关闭数据库连接
+        self.conn.close()
+
+    def select_db(self, sql):
+        """查询"""
+        # 检查连接是否断开，如果断开就进行重连
+        self.conn.ping(reconnect=True)
+        # 使用 execute() 执行sql
+        self.cur.execute(sql)
+        # 使用 fetchall() 获取查询结果
+        data = self.cur.fetchall()
+        return data
+
+    def execute_db(self, sql):
+        """更新/新增/删除"""
+        try:
+            # 检查连接是否断开，如果断开就进行重连
+            self.conn.ping(reconnect=True)
+            # 使用 execute() 执行sql
+            self.cur.execute(sql)
+            # 提交事务
+            self.conn.commit()
+        except Exception as e:
+            log.info("操作MySQL出现错误，错误原因：{}".format(e))
+            # 回滚所有更改
+            self.conn.rollback()
 
 
-def delete(table_name, where=''):
-    if(where != ''):
-        str = 'where'
-        for key_value in where.keys():
-            value = where[key_value]
-            str = str + ' ' + key_value + '=' + value + ' ' + 'and'
-        where = str[:-3]
-        sql = "delete from %s %s" % (table_name, where)
-        cursor.execute(sql)
-        cnx.commit()
-# 取得数据库信息
-# print(select({'table':'gelixi_help_type','where':{'help_show': '1'}},'type_name,type_id'))
-
-
-def select(param, fields='*'):
-    table = param['table']
-    if('where' in param):
-        thewhere = param['where']
-        if(isinstance(thewhere, dict)):
-            keys = thewhere.keys()
-            str = 'where'
-            for key_value in keys:
-                value = thewhere[key_value]
-                str = str + ' ' + key_value + '=' + value + ' ' + 'and'
-            where = str[:-3]
-    else:
-        where = ''
-    sql = "select %s from %s %s" % (fields, table, where)
-    cursor.execute(sql)
-    result = cursor.fetchall()
-    return result
-
+db = MysqlDb(DB_CONF)
 
 if __name__ == '__main__':
-    sql = 'SELECT  * FROM qc_rule_info WHERE name= "111"'
-    data = execute_sql(sql)
-    print(data)
+    pass

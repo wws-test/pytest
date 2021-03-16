@@ -30,7 +30,6 @@ class upload(Page):
         self.send_key(search['人群查询'], "ww")
         self.isclick(search['查询'])
 
-    #   TODO(LoveLinXue.com): 还没写完逻辑
     def imagine(self):
         return [x.text for x in self.find_elements(search['查询结果'])]
     def up1(self):

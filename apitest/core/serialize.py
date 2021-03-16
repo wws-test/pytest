@@ -6,7 +6,7 @@ import json
 def deserialization(content: json):
     """
     反序列化
-        json对象 -> python数据类型
+        json对象 -> python数据类型 字典
     """
     return json.loads(content)
 

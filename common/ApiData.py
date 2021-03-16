@@ -1,23 +1,50 @@
+import json
 import os
 from string import Template
-
 import yaml
-
-
+from configparser import ConfigParser
 from config.conf import DATA_DIR
+from tools.logger import log
 
+class MyConfigParser(ConfigParser):
+    # 重写 configparser 中的 optionxform 函数，解决 .ini 文件中的 键option 自动转为小写的问题
+    def __init__(self, defaults=None):
+        ConfigParser.__init__(self, defaults=defaults)
 
+    def optionxform(self, optionstr):
+        return optionstr
 class ApiInfo:
 
     def __init__(self):
         self.base_info_path = os.path.join(DATA_DIR, 'testinfo.yaml')
         self.business_path = os.path.join(DATA_DIR, 'BusinessInterface.yaml')
-        self.stand_alone_path = os.path.join(DATA_DIR, 'stand_alone_interface.yaml')
+        self.stand_alone_path = os.path.join(
+            DATA_DIR, 'stand_alone_interface.yaml')
         self.axb_unbind_path = os.path.join(DATA_DIR, 'axb_unbind.yaml')
+        self.base_login = os.path.join(DATA_DIR, 'axb_login.yaml')
+
     @classmethod
-    def load(cls, path):
-        with open(path, encoding='utf-8') as f:
-            return yaml.safe_load(f)
+    def load(cls, file_path):
+        log.info("加载 {} 文件......".format(file_path))
+        with open(file_path, encoding='utf-8') as f:
+            data = yaml.safe_load(f)
+        log.info("读到数据 ==>>  {} ".format(data))
+        return data
+    @classmethod
+    def load_json(self, file_path):
+        log.info("加载 {} 文件......".format(file_path))
+        with open(file_path, encoding='utf-8') as f:
+            data = json.load(f)
+        log.info("读到数据 ==>>  {} ".format(data))
+        return data
+    @classmethod
+    def load_ini(self, file_path):
+        log.info("加载 {} 文件......".format(file_path))
+        config = MyConfigParser()
+        config.read(file_path, encoding="UTF-8")
+        data = dict(config._sections)
+        # print("读到数据 ==>>  {} ".format(data))
+        return data
 
     @property
     def info(self):
@@ -26,6 +53,7 @@ class ApiInfo:
     @property
     def business(self):
         return self.load(self.business_path)
+
     @property
     def unbind(self):
         return self.load(self.axb_unbind_path)
@@ -37,10 +65,6 @@ class ApiInfo:
     def test_info(self, value):
         """测试信息"""
         return self.info['test_info'][value]
-
-    def login_info(self, value):
-        """登录信息"""
-        return self.stand_alone['登录'].get(value)
 
     def business_info(self, name):
         """用例信息"""
@@ -55,13 +79,40 @@ class ApiInfo:
         with open(path, encoding="utf-8") as f:
             re = Template(f.read()).substitute(data)
             return yaml.safe_load(re)
+    #去除字符串替换过程中过的none问题
+    def dict_clean(self,dict):
+
+        r = json.dumps(dict).replace('null','""')
+
+        tmp=json.loads(r)
+        return tmp
+
+
+
 
 testinfo = ApiInfo()
 
 
 if __name__ == '__main__':
-    dict1 = {'sign': '497fca80',
-             'timestamp': "str1",
-             'requestId': "uuid1"}
-    print(testinfo.business['登录']['RequestData']['data'])
+    replace_dict = {
+        'key': '7d34ee6f',
+        'timestamp': 20210209165426,
+        'sign': 'Qnx+WioJNWf7AvWyuQdvFCGBOtWZveSkbZHCFwAC3vU=',
+        'requestId': 'd9e80bae-0567-4752-86ad-69c995b935ca',
+        'telA': 18873098966,
+        'telX': None,
+        'telB': 15010128624,
+        'areaCode': '',
+        'anuCode': '',
+        'expiration': '300',
+        'callRecording': '1',
+        'callDisplay': '1',
+        'callRestrict': '1'}
+    # filtered = {k: v for k, v in replace_dict.items() if v is None  }
+    # replace_dict.clear()
+    # replace_dict.update(filtered)
+
+
+#
+print(testinfo.business.values())
 
