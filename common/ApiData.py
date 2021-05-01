@@ -5,6 +5,7 @@ import yaml
 from configparser import ConfigParser
 from config.conf import DATA_DIR
 from tools.logger import log
+from typing import Tuple, Dict, Union, Text, List, Callable
 
 class MyConfigParser(ConfigParser):
     # 重写 configparser 中的 optionxform 函数，解决 .ini 文件中的 键option 自动转为小写的问题
@@ -13,6 +14,8 @@ class MyConfigParser(ConfigParser):
 
     def optionxform(self, optionstr):
         return optionstr
+
+
 class ApiInfo:
 
     def __init__(self):
@@ -21,25 +24,29 @@ class ApiInfo:
         self.stand_alone_path = os.path.join(
             DATA_DIR, 'stand_alone_interface.yaml')
         self.axb_unbind_path = os.path.join(DATA_DIR, 'axb_unbind.yaml')
-        self.base_login = os.path.join(DATA_DIR, 'axb_login.yaml')
+        self.base_login = os.path.join(DATA_DIR, 'basics_login.yaml')
+        self.check_create=os.path.join(DATA_DIR,'basics_check_create.yml')
 
     @classmethod
-    def load(cls, file_path):
-        log.info("加载 {} 文件......".format(file_path))
+    def load(cls, file_path: Text) -> Dict:
         with open(file_path, encoding='utf-8') as f:
-            data = yaml.safe_load(f)
+            try:
+                data = yaml.safe_load(f)
+            except yaml.YAMLError as ex:
+                err_msg = f"YAMLError:\nfile: {file_path}\nerror: {ex}"
+        log.info(err_msg)
         log.info("读到数据 ==>>  {} ".format(data))
         return data
+
     @classmethod
     def load_json(self, file_path):
-        log.info("加载 {} 文件......".format(file_path))
         with open(file_path, encoding='utf-8') as f:
             data = json.load(f)
         log.info("读到数据 ==>>  {} ".format(data))
         return data
+
     @classmethod
     def load_ini(self, file_path):
-        log.info("加载 {} 文件......".format(file_path))
         config = MyConfigParser()
         config.read(file_path, encoding="UTF-8")
         data = dict(config._sections)
@@ -79,15 +86,14 @@ class ApiInfo:
         with open(path, encoding="utf-8") as f:
             re = Template(f.read()).substitute(data)
             return yaml.safe_load(re)
-    #去除字符串替换过程中过的none问题
-    def dict_clean(self,dict):
+    # 去除字符串替换过程中过的none问题
 
-        r = json.dumps(dict).replace('null','""')
+    def dict_clean(self, dict):
 
-        tmp=json.loads(r)
+        r = json.dumps(dict).replace('null', '""')
+
+        tmp = json.loads(r)
         return tmp
-
-
 
 
 testinfo = ApiInfo()
@@ -111,8 +117,5 @@ if __name__ == '__main__':
     # filtered = {k: v for k, v in replace_dict.items() if v is None  }
     # replace_dict.clear()
     # replace_dict.update(filtered)
-
-
-#
-print(testinfo.business.values())
+# print(testinfo.load(testinfo.base_login))
 

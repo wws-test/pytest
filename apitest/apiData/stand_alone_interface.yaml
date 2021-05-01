@@ -1,7 +1,6 @@
 ﻿method: post
 route: /ann/login
 RequestData:
-  data:
     username: manager
     password: 123456
     rememberMe: false

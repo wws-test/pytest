@@ -13,19 +13,17 @@ from common.ApiData import testinfo
 from tools.logger import log
 
 
-@allure.feature("业务流程API测试")
+@allure.feature("基础平台登录")
 def login_uesr(
         username,
         password,
-        rememberMe,
-        verificationCode,
+        force,
         except_code,
         except_msg):
     json_data = {"data":{
         "username": username,
         "password": password,
-        "rememberMe": rememberMe,
-        "verificationCode": verificationCode
+        "force": force
     }}
     result = req(
         testinfo.load(testinfo.base_login)['method'],

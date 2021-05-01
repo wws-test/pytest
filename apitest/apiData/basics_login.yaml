@@ -1,0 +1,10 @@
+﻿method: post
+route: /api/login
+RequestData:
+  # 用户名,密码,手机号,性别,联系地址,期望结果,期望返回码,期望返回信息
+  # username, password, force, except_code, except_msg
+  - ["admin", "9c16ff1ecec9195cf8d30bec799d31ec5e09dda0", "false",0, "登录成功"]
+expectcode: 200
+regularcheck:
+resultcheck:
+extractresult:
