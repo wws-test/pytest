@@ -1,0 +1,8 @@
+﻿method: get
+route: /workflow/form/getProcessStartTaskFormData
+RequestData:
+  # processDefinitionKey
+    - {'processInstanceId' :'cascadeOrder'}
+expectcode: 200
+resultcheck: 'success: true'
+extractresult:

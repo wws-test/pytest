@@ -1,0 +1,10 @@
+auto_send: false
+csrf_token:  'ImYzMWM3OTA1M2Q1Y2NmOGM2ODkyMzg2NDExYmY0ODQ5NjgzYzZiMTIi.DRUl4g.JjAC_3POU6MhVw-FXiyOK_ut5Cs'
+mail_host:  'smtp.163.com'
+mail_port: 25
+mail_pwd:  '56752308'
+mail_subject: "TAFFY_\u6D4B\u8BD5\u62A5\u544A"
+mail_to: 'lovesoo@163.com;lovesoo@126.com'
+mail_user: 'monitord3@163.com'
+report_name:  'test_report'
+submit_button: true

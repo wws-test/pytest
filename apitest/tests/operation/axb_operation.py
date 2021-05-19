@@ -35,4 +35,5 @@ def login_uesr(
     # print(result.__dict__)
     log.info("code ==>> 期望结果：{}， 实际结果：【 {} 】".format(
         except_code, result.json().get("code")))
+    log.info("msg就是{}".format(result.json().get("message")))
     return result
