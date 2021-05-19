@@ -35,7 +35,8 @@ class RegExp(object):
     def getvalue(self,exp,string,num=0,is_all=False):
         try:
             self.data = json.loads(string)  # json转成字典
-        except Exception:
+        except Exception as e:
+            print('这里报错了%s'%e)
             self.data = string
         if is_all == True:
             data = jsonpath.jsonpath(self.data, '$..{}'.format(exp))

@@ -9,7 +9,7 @@ class CRedis:
         self.host = 'localhost'
         self.port = 6379
         self.db = 0
-        self.r = redis.Redis(host=self.host, port=self.port, db=self.db,decode_responses=True)
+        self.r = redis.Redis(host=self.host, port=self.port, db=self.db,decode_responses=True,password='12345',username='auth')
 
     # 1. strings 类型及操作
 

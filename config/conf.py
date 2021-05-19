@@ -4,7 +4,9 @@ from selenium.webdriver.common.by import By
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # 配置文件
-INI_PATH = os.path.join(BASE_DIR, 'config', 'config.ini')
+YAML_PATH= os.path.join(BASE_DIR, 'config', 'config.yaml')
+
+INI_PATH =  os.path.join(BASE_DIR, 'config', 'config.ini')
 
 # 页面元素目录
 ELEMENT_PATH = os.path.join(BASE_DIR, 'page_element')
@@ -17,6 +19,8 @@ SCREENSHOT_DIR = os.path.join(BASE_DIR, 'screen_capture')
 
 # 数据文件
 DATA_DIR = os.path.join(BASE_DIR, 'apitest\\apiData')
+
+WORKFLOW=os.path.join(BASE_DIR, 'apitest\\apiData\\workflow')
 
 # 报告目录
 REPORT_PATH = os.path.join(BASE_DIR, 'report', 'report.html')

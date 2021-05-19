@@ -20,11 +20,10 @@ class HttpRequest(object):
     def __init__(self):
         self.timeout = 30.0
         self.r = requests.session()
-        self.headers = testinfo.test_info('headers')
+        self.headers = testinfo.load(testinfo.base_info_path)['test_info']['headers']
+        log.info("Request Header:{}".format(self.headers))
 
     def send_request(self, method: str, route: str, extract: str, **kwargs):
-
-
         method = method.upper()
         url = testinfo.test_info('url') + route
         try:

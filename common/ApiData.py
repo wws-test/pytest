@@ -3,9 +3,10 @@ import os
 from string import Template
 import yaml
 from configparser import ConfigParser
-from config.conf import DATA_DIR
+from config.conf import DATA_DIR, INI_PATH, WORKFLOW
 from tools.logger import log
 from typing import Tuple, Dict, Union, Text, List, Callable
+
 
 class MyConfigParser(ConfigParser):
     # 重写 configparser 中的 optionxform 函数，解决 .ini 文件中的 键option 自动转为小写的问题
@@ -25,7 +26,8 @@ class ApiInfo:
             DATA_DIR, 'stand_alone_interface.yaml')
         self.axb_unbind_path = os.path.join(DATA_DIR, 'axb_unbind.yaml')
         self.base_login = os.path.join(DATA_DIR, 'basics_login.yaml')
-        self.check_create=os.path.join(DATA_DIR,'basics_check_create.yml')
+        self.check_create = os.path.join(DATA_DIR, 'basics_check_create.yaml')
+        self.get_start=os.path.join(WORKFLOW, 'form_getstart.yaml')
 
     @classmethod
     def load(cls, file_path: Text) -> Dict:
@@ -34,8 +36,8 @@ class ApiInfo:
                 data = yaml.safe_load(f)
             except yaml.YAMLError as ex:
                 err_msg = f"YAMLError:\nfile: {file_path}\nerror: {ex}"
-        log.info(err_msg)
-        log.info("读到数据 ==>>  {} ".format(data))
+                log.info(err_msg)
+        # log.info("读到数据 ==>>  {} ".format(data))
         return data
 
     @classmethod
@@ -72,22 +74,22 @@ class ApiInfo:
     def test_info(self, value):
         """测试信息"""
         return self.info['test_info'][value]
-
-    def business_info(self, name):
-        """用例信息"""
-        return self.business[name]
-
-    def stand_info(self, name):
-        """单个接口"""
-        return self.stand_alone[name]
+    #
+    # def business_info(self, name):
+    #     """用例信息"""
+    #     return self.business[name]
+    #
+    # def stand_info(self, name):
+    #     """单个接口"""
+    #     return self.stand_alone[name]
 
     def yaml_template(self, path, data: dict):
         '''yaml模板字符串替换'''
         with open(path, encoding="utf-8") as f:
             re = Template(f.read()).substitute(data)
             return yaml.safe_load(re)
-    # 去除字符串替换过程中过的none问题
 
+    # 去除字符串替换过程中过的none问题
     def dict_clean(self, dict):
 
         r = json.dumps(dict).replace('null', '""')
@@ -100,22 +102,4 @@ testinfo = ApiInfo()
 
 
 if __name__ == '__main__':
-    replace_dict = {
-        'key': '7d34ee6f',
-        'timestamp': 20210209165426,
-        'sign': 'Qnx+WioJNWf7AvWyuQdvFCGBOtWZveSkbZHCFwAC3vU=',
-        'requestId': 'd9e80bae-0567-4752-86ad-69c995b935ca',
-        'telA': 18873098966,
-        'telX': None,
-        'telB': 15010128624,
-        'areaCode': '',
-        'anuCode': '',
-        'expiration': '300',
-        'callRecording': '1',
-        'callDisplay': '1',
-        'callRestrict': '1'}
-    # filtered = {k: v for k, v in replace_dict.items() if v is None  }
-    # replace_dict.clear()
-    # replace_dict.update(filtered)
-# print(testinfo.load(testinfo.base_login))
-
+    print(testinfo.load(testinfo.base_info_path))

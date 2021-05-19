@@ -17,6 +17,7 @@ from tools.logger import log
 
 
 # 中文编码
+from tools.sqltools import db
 
 
 def pytest_collection_modifyitems(
@@ -69,20 +70,20 @@ def repeat(count=1):
         return warpper
     return callables
 
-# @pytest.fixture(scope="function")
-# def delete_register_user():
-#     """注册用户前，先删除数据，用例执行之后，再次删除以清理数据"""
-#     try:
-#         del_sql = base_data["init_sql"]["delete_register_user"]
-#         db.execute_db(del_sql)
-#         log.info("注册用户操作：清理用户--准备注册新用户")
-#         log.info("执行前置SQL：{}".format(del_sql))
-#     except:
-#         print('sql报错')
-#     yield  # 用于唤醒 teardown 操作  yield转后置
-#     db.execute_db(del_sql)
-#     log.info("注册用户操作：删除注册的用户")
-#     log.info("执行后置SQL：{}".format(del_sql))
+@pytest.fixture(scope="function")
+def delete_register_user():
+    """注册用户前，先删除数据，用例执行之后，再次删除以清理数据"""
+    try:
+        del_sql = base_data["init_sql"]["delete_register_user"]
+        db.execute_db(del_sql)
+        log.info("注册用户操作：清理用户--准备注册新用户")
+        log.info("执行前置SQL：{}".format(del_sql))
+    except:
+        print('sql报错')
+    yield  # 用于唤醒 teardown 操作  yield转后置
+    db.execute_db(del_sql)
+    log.info("注册用户操作：删除注册的用户")
+    log.info("执行后置SQL：{}".format(del_sql))
 
 
 if __name__ == '__main__':

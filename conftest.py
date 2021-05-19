@@ -22,7 +22,7 @@ def drivers(request):
         options.add_argument('--blink-settings=imagesEnabled=false')
         driver = webdriver.Chrome(
             options=options,
-            executable_path=r"C:\\Users\\Administrator\\AppData\Local\\Google\Chrome\\Application\\chromedriver.exe")
+            executable_path=r"C:\\Program Files\\Google\Chrome\\Application\\chromedriver.exe")
     inspect_element()
     picclear()
 

@@ -58,7 +58,7 @@ class MysqlDb():
             self.conn.rollback()
 
 
-# db = MysqlDb(DB_CONF)
+db = MysqlDb(DB_CONF)
 
 if __name__ == '__main__':
     pass

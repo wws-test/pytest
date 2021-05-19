@@ -14,7 +14,7 @@ def get_result(r: Response, extract):
     """获取值"""
     for i in extract:
         value = regs.getvalue(i, r.text)
-        log.info("正则提取结果值：{}={}".format(i, value))
+        log.info("json提取结果值：{}={}".format(i, value))
         is_vars.set(i, value)
         assert (is_vars.has(i))
     with allure.step("提取返回结果中的值"):

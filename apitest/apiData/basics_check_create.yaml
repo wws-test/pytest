@@ -7,4 +7,3 @@ RequestData:
 expectcode: 200
 resultcheck: '"code":0'
 extractresult:
-    - "id"

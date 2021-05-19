@@ -25,7 +25,7 @@ class TestStandAlone:
     @pytest.mark.parametrize('case',
                              testinfo.business.values(),
                              ids=testinfo.business.keys())
-    def test_business_interface(self, is_login, case):
+    def test_business_interface(self, case):
         r = req(
             case['method'],
             case['route'],

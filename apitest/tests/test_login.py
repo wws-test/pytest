@@ -30,27 +30,26 @@ def test_register_user(
         except_msg):
 
     result=login_uesr(username, password, force,except_result,except_msg)
-    assert except_msg in result.text
+    check_results(result,testinfo.load(testinfo.base_login))
     if 'token' in result:
         req.headers['Authorization'] = "JWT " + result['token']
-    log.info("except_msg就是%s "% result.text)
 
 @pytest.mark.parametrize('case',
                              testinfo.load(testinfo.check_create)['RequestData'],
                              ids=['新建考评任务'])
 def test_check_create(case):
-    try:
-        #拼装参数
-        data={'data':case}
-        #发送请求
-        r = req(
-            testinfo.load(testinfo.check_create)['method'],
-            testinfo.load(testinfo.check_create)['route'],
-            testinfo.load(testinfo.check_create).get('extractresult'),
-            **data)
-        check_results(r, testinfo.load(testinfo.check_create))
-    except:
-        pass
+    #拼装参数
+    data={'data':case}
+    #发送请求
+    # req.headers=testinfo.info
+    # #修改请求头
+    r = req(
+        testinfo.load(testinfo.check_create)['method'],
+        testinfo.load(testinfo.check_create)['route'],
+        testinfo.load(testinfo.check_create).get('extractresult'),
+        **data)
+    check_results(r, testinfo.load(testinfo.check_create))
+
 @repeat(3)
 def test_axc():
        print("112323")

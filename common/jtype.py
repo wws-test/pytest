@@ -1,9 +1,11 @@
-﻿import jpype
+﻿
 import os
+
+import jpype
 
 jvmPath = jpype.getDefaultJVMPath()
 #找到jar包
-jarpath = os.path.join(os.path.abspath("."), "C:\\Users\\Administrator\\Desktop\\test.jar")
+jarpath = os.path.join(os.path.abspath("."), "C:\\Users\\10925\\Desktop\\test.jar")
 # 开启jvm
 jpype.startJVM(jvmPath, "-ea", "-Djava.class.path=%s" % (jarpath))
 
