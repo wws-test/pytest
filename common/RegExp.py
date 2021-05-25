@@ -42,7 +42,7 @@ class RegExp(object):
             data = jsonpath.jsonpath(self.data, '$..{}'.format(exp))
         else:
             data = jsonpath.jsonpath(self.data, '$..{}'.format(exp))
-            data = data[num]
+            data = data[num]  #这里报错一般就是响应没有提取值
         return data
 regs = RegExp()
 

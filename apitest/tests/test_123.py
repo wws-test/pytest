@@ -1,4 +1,7 @@
-﻿class MetaSingleton(type):
+﻿from common.Redis import wwredis
+
+
+class MetaSingleton(type):
     def __call__(cls, *args, **kwargs):
         print("cls:{}".format(cls.__name__))
         print("====1====")
@@ -12,5 +15,17 @@ class User(metaclass=MetaSingleton):
         print("====3====")
         for k,v in kw:
             setattr(self, k, v)
+def test_www():
+    id = wwredis.red_get('id')
+    js = {
+        "processDefinitionId": id,
+        "businessKey": "",
+        "businessType": "",
+        "businessName": "",
+        "tenantId": "",
+        "formData": {"username": "task"}
+    }
+    tmp = str(js)
+
 if __name__ == '__main__':
-    pass
+    print(test_www())

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
+import  sys
+sys.path.append(r"D:\pytst\conftest.py")
 import os
 import base64
 import pytest

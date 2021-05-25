@@ -7,9 +7,10 @@ import allure
 import pytest
 import allure
 
-from apitest.core.checkreult import check_results
+from apitest.core.checkreult import check_results, check_code, check_message
 from apitest.core.request import req
 from common.ApiData import testinfo
+from common.variable import is_vars
 from tools.logger import log
 
 
@@ -25,13 +26,17 @@ def login_uesr(
         "password": password,
         "force": force
     }}
+    req.headers=testinfo.load(testinfo.get_3150)['test_info']['headers']
     result = req(
         testinfo.load(testinfo.base_login)['method'],
         testinfo.load(testinfo.base_login)['route'],
         testinfo.load(testinfo.base_login).get('extractresult'),
         **json_data)
+    bind = is_vars.get("companyId")
+    log.info("提取只{}".format(bind))
     #检查响应码
-    # check_results(r, except_code)
+    check_code(result, except_code)
+    check_message(result,except_msg)
     # print(result.__dict__)
     log.info("code ==>> 期望结果：{}， 实际结果：【 {} 】".format(
         except_code, result.json().get("code")))

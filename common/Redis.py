@@ -8,7 +8,7 @@ class CRedis:
     def __init__(self):
         self.host = 'localhost'
         self.port = 6379
-        self.db = 0
+        self.db = 2
         self.r = redis.Redis(host=self.host, port=self.port, db=self.db,decode_responses=True,password='12345',username='auth')
 
     # 1. strings 类型及操作
@@ -113,4 +113,4 @@ wwredis = CRedis()
 
 if __name__ == '__main__':
     wwredis.remove('a')
-    print(wwredis.red_get('bindId'))
+    print(wwredis.red_set('bindId','12312312321'))

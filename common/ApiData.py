@@ -3,6 +3,8 @@ import os
 from string import Template
 import yaml
 from configparser import ConfigParser
+
+from common.Redis import wwredis
 from config.conf import DATA_DIR, INI_PATH, WORKFLOW
 from tools.logger import log
 from typing import Tuple, Dict, Union, Text, List, Callable
@@ -28,6 +30,7 @@ class ApiInfo:
         self.base_login = os.path.join(DATA_DIR, 'basics_login.yaml')
         self.check_create = os.path.join(DATA_DIR, 'basics_check_create.yaml')
         self.get_start=os.path.join(WORKFLOW, 'form_getstart.yaml')
+        self.get_3150 = os.path.join(DATA_DIR, '3150_info.yaml')
 
     @classmethod
     def load(cls, file_path: Text) -> Dict:
@@ -98,8 +101,9 @@ class ApiInfo:
         return tmp
 
 
+
 testinfo = ApiInfo()
 
 
 if __name__ == '__main__':
-    print(testinfo.load(testinfo.base_info_path))
+    pass

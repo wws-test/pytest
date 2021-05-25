@@ -30,9 +30,8 @@ def test_register_user(
         except_msg):
 
     result=login_uesr(username, password, force,except_result,except_msg)
-    check_results(result,testinfo.load(testinfo.base_login))
-    if 'token' in result:
-        req.headers['Authorization'] = "JWT " + result['token']
+    result.encoding = 'utf-8'
+
 
 @pytest.mark.parametrize('case',
                              testinfo.load(testinfo.check_create)['RequestData'],

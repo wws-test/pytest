@@ -1,8 +1,8 @@
 ﻿method: get
-route: /workflow/form/getProcessStartTaskFormData
+route: /workflow/form/rest/model  #查询key相关联的模型
 RequestData:
-  # processDefinitionKey
-    - {'processInstanceId' :'cascadeOrder'}
+  # 模型key，模型类型
+    - {'modelType' :'0','modelKey':'test'}
 expectcode: 200
 resultcheck: 'success: true'
 extractresult:
