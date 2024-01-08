@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 import os
 import yaml
-from config.conf import ELEMENT_PATH
+from apitest.config.conf import ELEMENT_PATH
 
 
 class Element:

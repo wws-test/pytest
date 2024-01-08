@@ -3,15 +3,16 @@ import os
 
 import pymysql
 
-from common.ApiData import testinfo
-from config.conf import DATA_DIR, BASE_DIR
-from tools.logger import log
+from apitest.common.ApiData import testinfo
+from apitest.common.Redis import wwredis
+from apitest.config.conf import DATA_DIR, BASE_DIR
+from apitest.tools.logger import log
 
 data_file_path = os.path.join(BASE_DIR, "config", "config.ini")
 data = testinfo.load_ini(data_file_path)["mysql"]
 
 DB_CONF = {
-    "host": data["MYSQL_HOST"],
+    "host": wwredis.red_get('ip'),
     "port": int(data["MYSQL_PORT"]),
     "user": data["MYSQL_USER"],
     "password": data["MYSQL_PASSWD"],
@@ -61,4 +62,4 @@ class MysqlDb():
 db = MysqlDb(DB_CONF)
 
 if __name__ == '__main__':
-    pass
+    print(db.select_db('SELECT enterprise_id FROM `db_system_info`WHERE enterprise_name = "备案单位2021-07-13-17_40"')[0]['enterprise_id'])

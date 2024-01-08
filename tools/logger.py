@@ -1,7 +1,10 @@
 import os
 import logging
-from config.conf import LOG_PATH
-from tools.time import datetime_strftime
+
+
+
+from apitest.config.conf import LOG_PATH
+from apitest.tools.time import datetime_strftime
 
 
 class Log:

@@ -1,9 +1,0 @@
-﻿method: post
-route: /api/exam/task/create
-RequestData:
-  # 用户名,密码,保存,联系地址,期望结果,期望返回码,期望返回信息
-  # username, password, rememberMe, verificationCode, except_code, except_msg
-    - {"name":"qweqwe","rules":"4313001839558656","reportName":"qweqwe","rangeType":"行业","rangeContent":"工商行政管理","period":"每周","timeFromStr":"周一","isSubscribe":false,"receiver":"","regions":[]}
-expectcode: 200
-resultcheck: '"code":0'
-extractresult:

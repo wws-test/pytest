@@ -1,12 +1,13 @@
 ﻿import re
 
-from apitest.core.serialize import is_json_str
-from common.variable import is_vars
-from tools.logger import log
+
+from apitest.common.variable import is_vars
+from apitest.tools.logger import log
 
 import jsonpath
 
 import json
+
 
 
 class RegExp(object):
@@ -28,10 +29,10 @@ class RegExp(object):
         log.info("替换结果: {}".format(result))
         return result
 
-    def __call__(self, exp, string):
-        if is_json_str(string):
-            return self.reg(r'\"%s":"(.*?)"' % exp).findall(string)
-        return self.reg(r'%s' % exp).findall(string)[0]
+    # def __call__(self, exp, string):
+    #     if is_json_str(string):
+    #         return self.reg(r'\"%s":"(.*?)"' % exp).findall(string)
+    #     return self.reg(r'%s' % exp).findall(string)[0]
     def getvalue(self,exp,string,num=0,is_all=False):
         try:
             self.data = json.loads(string)  # json转成字典

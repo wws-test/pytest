@@ -3,11 +3,11 @@ import uuid
 
 from faker import Faker
 
-from common.ApiData import testinfo
-from common.Redis import wwredis
-from common.jtype import sign, rawString
-from common.variable import is_vars
-from tools.logger import Log
+from apitest.common.ApiData import testinfo
+from apitest.common.Redis import wwredis
+from apitest.common.jtype import sign, rawString
+from apitest.common.variable import is_vars
+from apitest.tools.logger import Log
 
 log = Log().logger
 

@@ -1,6 +1,6 @@
 import os
 import configparser
-from config.conf import INI_PATH
+from apitest.config.conf import INI_PATH
 
 HOST = 'HOST'
 BD = 'BD'

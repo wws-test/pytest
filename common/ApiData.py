@@ -4,9 +4,9 @@ from string import Template
 import yaml
 from configparser import ConfigParser
 
-from common.Redis import wwredis
-from config.conf import DATA_DIR, INI_PATH, WORKFLOW
-from tools.logger import log
+from apitest.common.Redis import wwredis
+from apitest.config.conf import DATA_DIR, INI_PATH, WORKFLOW
+from apitest.tools.logger import log
 from typing import Tuple, Dict, Union, Text, List, Callable
 
 
@@ -30,7 +30,7 @@ class ApiInfo:
         self.base_login = os.path.join(DATA_DIR, 'basics_login.yaml')
         self.check_create = os.path.join(DATA_DIR, 'basics_check_create.yaml')
         self.get_start=os.path.join(WORKFLOW, 'form_getstart.yaml')
-        self.get_3150 = os.path.join(DATA_DIR, '3150_info.yaml')
+        self.base_3150 = os.path.join(DATA_DIR, '3150_info.yaml')
 
     @classmethod
     def load(cls, file_path: Text) -> Dict:
@@ -61,7 +61,6 @@ class ApiInfo:
     @property
     def info(self):
         return self.load(self.base_info_path)
-
     @property
     def business(self):
         return self.load(self.business_path)
@@ -77,7 +76,8 @@ class ApiInfo:
     def test_info(self, value):
         """测试信息"""
         return self.info['test_info'][value]
-    #
+
+        #
     # def business_info(self, name):
     #     """用例信息"""
     #     return self.business[name]
@@ -106,4 +106,4 @@ testinfo = ApiInfo()
 
 
 if __name__ == '__main__':
-    pass
+    print(testinfo.load(testinfo.base_3150)['test_info']['headers'])

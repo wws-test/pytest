@@ -1,7 +1,8 @@
 ﻿import os
 import shutil
-from config.conf import SCREENSHOT_DIR, BASE_DIR
-from tools.logger import Log
+
+from apitest.config.conf import SCREENSHOT_DIR, BASE_DIR
+from apitest.tools.logger import Log
 
 log = Log().logger
 

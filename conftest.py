@@ -7,26 +7,26 @@ import base64
 import pytest
 import allure
 from py._xmlgen import html
-from selenium import webdriver
-from common.readconfig import ini
-from config.conf import SCREENSHOT_DIR
-from common.inspects import inspect_element
-from tools.time import datetime_strftime, timestamp
-from tools.clear import picclear
+# from selenium import webdriver
+from apitest.common.readconfig import ini
+from apitest.config.conf import SCREENSHOT_DIR
+from apitest.common.inspects import inspect_element
+from apitest.tools.time import datetime_strftime, timestamp
+from apitest.tools.clear import picclear
 driver = None
 
 
 @pytest.fixture(scope='session', autouse=True)
 def drivers(request):
-    global driver
-    if driver is None:
-        options = webdriver.ChromeOptions()
-        options.add_argument('--blink-settings=imagesEnabled=false')
-        driver = webdriver.Chrome(
-            options=options,
-            executable_path=r"C:\\Program Files\\Google\Chrome\\Application\\chromedriver.exe")
-    inspect_element()
-    picclear()
+    # global driver
+    # if driver is None:
+    #     options = webdriver.ChromeOptions()
+    #     options.add_argument('--blink-settings=imagesEnabled=false')
+    #     driver = webdriver.Chrome(
+    #         options=options,
+    #         executable_path=r"C:\\Program Files\\Google\Chrome\\Application\\chromedriver.exe")
+    # inspect_element()
+    # picclear()
 
     def fn():
         driver.quit()

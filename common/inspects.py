@@ -1,7 +1,7 @@
 import os
 import yaml
-from tools.time import timestamp
-from config.conf import ELEMENT_PATH, LOCATE_MODE
+from apitest.tools.time import timestamp
+from apitest.config.conf import ELEMENT_PATH, LOCATE_MODE
 
 
 def inspect_element():

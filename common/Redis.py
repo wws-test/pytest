@@ -6,7 +6,7 @@ from tools.logger import log
 
 class CRedis:
     def __init__(self):
-        self.host = 'localhost'
+        self.host = '10.11.33.41'
         self.port = 6379
         self.db = 2
         self.r = redis.Redis(host=self.host, port=self.port, db=self.db,decode_responses=True,password='12345',username='auth')
@@ -113,4 +113,4 @@ wwredis = CRedis()
 
 if __name__ == '__main__':
     wwredis.remove('a')
-    print(wwredis.red_set('bindId','12312312321'))
+    print(wwredis.red_get('ip'))

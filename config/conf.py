@@ -18,7 +18,7 @@ LOG_PATH = os.path.join(BASE_DIR, 'logs')
 SCREENSHOT_DIR = os.path.join(BASE_DIR, 'screen_capture')
 
 # 数据文件
-DATA_DIR = os.path.join(BASE_DIR, 'apitest\\apiData')
+DATA_DIR = os.path.join(BASE_DIR, 'apiData')
 
 WORKFLOW=os.path.join(BASE_DIR, 'apitest\\apiData\\workflow')
 
